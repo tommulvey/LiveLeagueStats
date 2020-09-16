@@ -9,11 +9,11 @@ const heading={
     width: '500px',
     fontSize: '80px'
 }
-function PlayerStats(){
+function LiveVideoStream(){
     //    let className=props.primary ? 'primary' : ""
         return(
             <h1 style={heading}>Video</h1>
 
         )
     }
-    export default PlayerStats;
+    export default LiveVideoStream;

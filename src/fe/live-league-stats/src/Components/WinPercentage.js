@@ -9,11 +9,11 @@ const heading={
     border: '20px solid green',
     fontSize: '80px'
 }
-function PlayerStats(){
+function WinPercentage(){
     //    let className=props.primary ? 'primary' : ""
         return(
             <h1 style={heading}>WinPercentage</h1>
 
         )
     }
-    export default PlayerStats;
+    export default WinPercentage;

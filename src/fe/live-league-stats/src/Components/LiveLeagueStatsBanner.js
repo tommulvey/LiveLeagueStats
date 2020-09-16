@@ -10,11 +10,11 @@ const heading={
     fontSize: '80px'
 }
 
-function PlayerStats(){
+function LiveLeagueStatsBanner(){
     //    let className=props.primary ? 'primary' : ""
         return(
             <h1 style={heading}>Banner</h1>
 
         )
     }
-    export default PlayerStats;
+    export default LiveLeagueStatsBanner;
