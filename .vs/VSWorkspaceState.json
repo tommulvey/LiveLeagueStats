@@ -2,8 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\fe"
+    "\\src\\fe",
+    "\\src\\fe\\live-league-stats",
+    "\\src\\fe\\live-league-stats\\src"
   ],
-  "SelectedNode": "\\src\\fe",
+  "SelectedNode": "\\src\\fe\\live-league-stats\\src\\App.js",
   "PreviewInSolutionExplorer": false
 }
