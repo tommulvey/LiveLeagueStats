@@ -6,4 +6,5 @@ yooooooo
 
 # yarn dev
 
-that easy folks
+if the menu bar or any CSS breaks while coding,
+just stop the yarn server and restart
