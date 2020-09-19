@@ -120,7 +120,7 @@ export default class AnalyticsDashboard1 extends Component {
                                         </div>
                                        
                                     </CardHeader>
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/JUS3-t7BtO0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/oP-adg6Cw98" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </Card>
                                 
                             </Col>
@@ -133,7 +133,7 @@ export default class AnalyticsDashboard1 extends Component {
                                         </div>
                                        
                                     </CardHeader>
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/JUS3-t7BtO0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <h1>Replace with Fake Data</h1>
                                 </Card>
                                 
                             </Col>
