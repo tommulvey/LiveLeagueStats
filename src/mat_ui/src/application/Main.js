@@ -4,18 +4,22 @@ import styled, {injectGlobal} from 'styled-components'
 import { useTheme, createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import {deepOrange500} from 'material-ui/styles/colors'
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button'
 import { red } from '@material-ui/core/colors'
-import RaisedButton from 'material-ui/RaisedButton'; // add
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import baseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import * as Colors from 'material-ui/styles/colors';
 import { fade } from 'material-ui/utils/colorManipulator'
+import './styles/Main.css'
 import Video from './components/Video'
 import HeaderMain from './components/HeaderMain'
-import { DarkRawTheme } from 'material-ui/styles';
 
-import './styles/Main.css'
+const getTheme = () => {
+  let overwrites = {};
+  return getMuiTheme(baseTheme, overwrites);
+}
+// import {RaisedButton, Dialog, FlatButton} from 'material-ui'
 
 
 injectGlobal`
@@ -27,13 +31,6 @@ injectGlobal`
 const Div = styled.div`
   padding-top: 2px;
 `
-
-interface PaletteColor {
-  light?: string;
-  main: string;
-  dark?: string;
-  contrastText?: string;
-}
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -111,12 +108,20 @@ export default class Main extends Component {
   })
 
   render = () => {
-	return(
-	  <ThemeProvider theme={darkBaseTheme} >
+    return(
+      <ThemeProvider theme={darkTheme} >
+        <CssBaseline />
         <HeaderMain />
         <Video />
       </ThemeProvider>
-	)
+    )
+    // return(
+    //   <ThemeProvider theme={darkTheme} >
+    //     <CssBaseline />
+    //     <Button color = "primary" variant = "contained"> Me Button </Button>
+    //     <Typography variant="h1" color="inherit">Some text in here</Typography>
+    //   </ThemeProvider>
+    // )
   }
     
 }
