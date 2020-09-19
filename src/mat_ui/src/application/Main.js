@@ -12,8 +12,9 @@ import baseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import * as Colors from 'material-ui/styles/colors';
 import { fade } from 'material-ui/utils/colorManipulator'
 import './styles/Main.css'
-import Video from './components/Video'
+import Video from './components/VideoPage'
 import HeaderMain from './components/HeaderMain'
+import MiniDrawer from './components/MiniDrawer';
 
 const getTheme = () => {
   let overwrites = {};
@@ -111,8 +112,7 @@ export default class Main extends Component {
     return(
       <ThemeProvider theme={darkTheme} >
         <CssBaseline />
-        <HeaderMain />
-        <Video />
+        <MiniDrawer />
       </ThemeProvider>
     )
     // return(
