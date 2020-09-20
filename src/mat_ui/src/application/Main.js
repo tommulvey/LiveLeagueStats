@@ -90,14 +90,13 @@ const theme = createMuiTheme({
 export default class Main extends Component {
   constructor(properties) {
     super(properties)
-	console.log('constructah')
+	  console.log('constructah')
     this.theme = darkTheme
 
     this.state = {
       open: false
-	}
+	  }
 	
-	console.log('yo ', darkTheme)
   }
 
   handleRequestClose = () => this.setState({
