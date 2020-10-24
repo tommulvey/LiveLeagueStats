@@ -28,7 +28,7 @@ class Header extends React.Component {
                     transitionEnter={false}
                     transitionLeave={false}>
 
-                    <HeaderLogo/>
+                    
 
                     <div className={cx(
                         "app-header__content",
@@ -57,3 +57,5 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
+
+//<HeaderLogo/>

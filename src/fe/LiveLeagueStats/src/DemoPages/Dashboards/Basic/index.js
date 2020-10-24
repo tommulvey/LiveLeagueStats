@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+//import PlayerData from './InvokeAPI'
 import classnames from 'classnames';
 
 import {
@@ -40,6 +41,7 @@ import avatar1 from '../../../assets/utils/images/avatars/1.jpg';
 import avatar2 from '../../../assets/utils/images/avatars/2.jpg';
 import avatar3 from '../../../assets/utils/images/avatars/3.jpg';
 import avatar4 from '../../../assets/utils/images/avatars/4.jpg';
+import PlayerData from './InvokeAPI';
 
 
 const data = [
@@ -133,188 +135,18 @@ export default class AnalyticsDashboard1 extends Component {
                                         </div>
                                        
                                     </CardHeader>
-                                    <h1>Replace with Fake Data</h1>
+                                    
                                 </Card>
                                 
                             </Col>
                             
                         </Row>
-                        <div className="row">
-                            <div className="col-md-6 col-lg-3">
-                                <div className="card-shadow-danger mb-3 widget-chart widget-chart2 text-left card">
-                                    <div className="widget-content">
-                                        <div className="widget-content-outer">
-                                            <div className="widget-content-wrapper">
-                                                <div className="widget-content-left pr-2 fsize-1">
-                                                    <div className="widget-numbers mt-0 fsize-3 text-danger">71%</div>
-                                                </div>
-                                                <div className="widget-content-right w-100">
-                                                    <div className="progress-bar-xs progress">
-                                                        <div className="progress-bar bg-danger" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" style={{ width: '71%' }}></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="widget-content-left fsize-1">
-                                                <div className="text-muted opacity-6">Income Target</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-6 col-lg-3">
-                                <div className="card-shadow-success mb-3 widget-chart widget-chart2 text-left card">
-                                    <div className="widget-content">
-                                        <div className="widget-content-outer">
-                                            <div className="widget-content-wrapper">
-                                                <div className="widget-content-left pr-2 fsize-1">
-                                                    <div className="widget-numbers mt-0 fsize-3 text-success">54%</div>
-                                                </div>
-                                                <div className="widget-content-right w-100">
-                                                    <div className="progress-bar-xs progress">
-                                                        <div className="progress-bar bg-success" role="progressbar" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100" style={{ width: '54%' }}></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="widget-content-left fsize-1">
-                                                <div className="text-muted opacity-6">Expenses Target</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-6 col-lg-3">
-                                <div className="card-shadow-warning mb-3 widget-chart widget-chart2 text-left card">
-                                    <div className="widget-content">
-                                        <div className="widget-content-outer">
-                                            <div className="widget-content-wrapper">
-                                                <div className="widget-content-left pr-2 fsize-1">
-                                                    <div className="widget-numbers mt-0 fsize-3 text-warning">32%</div>
-                                                </div>
-                                                <div className="widget-content-right w-100">
-                                                    <div className="progress-bar-xs progress">
-                                                        <div className="progress-bar bg-warning" role="progressbar" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100" style={{ width: '32%' }}></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="widget-content-left fsize-1">
-                                                <div className="text-muted opacity-6">Spendings Target</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-6 col-lg-3">
-                                <div className="card-shadow-info mb-3 widget-chart widget-chart2 text-left card">
-                                    <div className="widget-content">
-                                        <div className="widget-content-outer">
-                                            <div className="widget-content-wrapper">
-                                                <div className="widget-content-left pr-2 fsize-1">
-                                                    <div className="widget-numbers mt-0 fsize-3 text-info">89%</div>
-                                                </div>
-                                                <div className="widget-content-right w-100">
-                                                    <div className="progress-bar-xs progress">
-                                                        <div className="progress-bar bg-info" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style={{ width: '89%' }}></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div className="widget-content-left fsize-1">
-                                                <div className="text-muted opacity-6">Totals Target</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <Row>
-                            <Col md="12">
-                                
-                            </Col>
+                            <h2>Dynamic Graph
+                            </h2>
                         </Row>
-                        <Row>
-                            <Col md="4">
-                                <div className="card mb-3 widget-chart">
-                                    <div className="widget-chart-content">
-                                        <div className="icon-wrapper rounded-circle">
-                                            <div className="icon-wrapper-bg bg-primary"/>
-                                            <i className="lnr-cog text-primary"/>
-                                        </div>
-                                        <div className="widget-numbers">
-                                            45.8k
-                                        </div>
-                                        <div className="widget-subheading">
-                                            Total Views
-                                        </div>
-                                        <div className="widget-description text-success">
-                                            <FontAwesomeIcon icon={faAngleUp}/>
-                                            <span className="pl-1">175.5%</span>
-                                        </div>
-                                    </div>
-                                    <div className="widget-chart-wrapper">
-                                        <ResponsiveContainer width='100%' aspect={3.0 / 1.0}>
-                                            <LineChart data={data}
-                                                       margin={{top: 0, right: 5, left: 5, bottom: 0}}>
-                                                <Line type='monotone' dataKey='pv' stroke='#3ac47d' strokeWidth={3}/>
-                                            </LineChart>
-                                        </ResponsiveContainer>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col md="4">
-                                <div className="card mb-3 widget-chart">
-                                    <div className="widget-chart-content">
-                                        <div className="icon-wrapper rounded-circle">
-                                            <div className="icon-wrapper-bg bg-success"/>
-                                            <i className="lnr-screen text-success"/>
-                                        </div>
-                                        <div className="widget-numbers">
-                                            17.2k
-                                        </div>
-                                        <div className="widget-subheading">
-                                            Profiles
-                                        </div>
-                                        <div className="widget-description text-warning">
-                                            <span className="pr-1">175.5%</span>
-                                            <FontAwesomeIcon icon={faArrowLeft}/>
-                                        </div>
-                                    </div>
-                                    <div className="widget-chart-wrapper">
-                                        <ResponsiveContainer width='100%' aspect={3.0 / 1.0}>
-                                            <AreaChart data={data}
-                                                       margin={{top: 0, right: 0, left: 0, bottom: 0}}>
-                                                <Area type='monotoneX' dataKey='uv' stroke='#fd7e14' fill='#ffb87d'/>
-                                            </AreaChart>
-                                        </ResponsiveContainer>
-                                    </div>
-                                </div>
-                            </Col>
-                            <Col md="4">
-                                <div className="card mb-3 widget-chart">
-                                    <div className="widget-chart-content">
-                                        <div className="icon-wrapper rounded-circle">
-                                            <div className="icon-wrapper-bg bg-danger"/>
-                                            <i className="lnr-laptop-phone text-danger"/>
-                                        </div>
-                                        <div className="widget-numbers">
-                                            5.82k
-                                        </div>
-                                        <div className="widget-subheading">
-                                            Reports Submitted
-                                        </div>
-                                        <div className="widget-description text-danger">
-                                            <FontAwesomeIcon icon={faAngleDown}/>
-                                            <span className="pl-1">54.1%</span>
-                                        </div>
-                                    </div>
-                                    <div className="widget-chart-wrapper">
-                                        <ResponsiveContainer width='100%' aspect={3.0 / 1.0}>
-                                            <BarChart data={data}>
-                                                <Bar dataKey='uv' fill='#81a4ff' stroke='#3f6ad8' strokeWidth={2}/>
-                                            </BarChart>
-                                        </ResponsiveContainer>
-                                    </div>
-                                </div>
-                            </Col>
-                        </Row>
+                        
                     </div>
                 </ReactCSSTransitionGroup>
             </Fragment>

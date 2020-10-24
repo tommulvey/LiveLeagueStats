@@ -2,10 +2,16 @@
   "ExpandedNodes": [
     "",
     "\\src",
+<<<<<<< HEAD
     "\\src\\fe",
     "\\src\\fe\\live-league-stats",
     "\\src\\fe\\live-league-stats\\src"
   ],
   "SelectedNode": "\\src\\fe\\live-league-stats\\src\\App.js",
+=======
+    "\\src\\fe"
+  ],
+  "SelectedNode": "\\src\\fe",
+>>>>>>> 9a829bf7a68a54c58e593741ff420fd24eccad7c
   "PreviewInSolutionExplorer": false
 }

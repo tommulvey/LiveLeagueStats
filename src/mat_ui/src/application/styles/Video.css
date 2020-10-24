@@ -1,0 +1,70 @@
+iframe {
+  height: 65vh;
+  width: 56vw;
+}
+
+.vid-page-wit-stats {
+  position: relative;
+  height: 90vh;
+  width: 93vw;
+}
+
+.left-vid {
+  display: inline-block;
+  position: absolute;
+  /* left: 0; */
+}
+
+.right-stats-players {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  width: 37.5vw;
+  height: 65vh;
+  /* background: black; */
+  padding-right: 2vw;
+  padding-left: 2vw;
+}
+
+.player-rows {
+  padding-top: 1vh;
+}
+
+.playerIcons {
+  transform: scale(3);
+}
+
+.rows {
+  height: 13.5vh;
+  padding: inherit;
+}
+
+.playername {
+  color: #03DAC6;
+  /* position: relative; */
+  font-size: 1.25em;
+  font-weight: bold;
+  height: 1vh;
+  margin-top: 1.5em;
+  margin-left: -.8em;
+}
+
+.top {
+  color: #c158dc;
+}
+
+.jg {
+  color: #8e24aa;
+}
+
+.mid {
+  color: #9b4dcb;
+}
+
+.bot {
+  color: #5c007a;
+}
+
+.sup {
+  color: #4a0072;
+}
