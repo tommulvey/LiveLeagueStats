@@ -32,12 +32,12 @@ export default class PlayerRows extends React.Component {
   
   render() {
     return (
-      <div class="player-rows">
+      <div className="player-rows">
         {
           P1.map((p, index) => (
-            <div class="rows">
-              <div class={p.pos}> <FaceIcon className="playerIcons" /> </div>
-              <div class="playername"> <p> {p.name} </p> </div>
+            <div className="rows">
+              <div className={p.pos}> <FaceIcon className="playerIcons" /> </div>
+              <div className="playername"> <p> {p.name} </p> </div>
             </div>
           ))
         }
