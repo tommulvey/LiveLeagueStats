@@ -8,7 +8,6 @@ const PlayerRow = (props) => {
       <Grid>
         <div>
         <Player />
-        <Player />
         </div>
       </Grid>
     </Grid>
