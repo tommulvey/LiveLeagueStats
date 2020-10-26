@@ -4,6 +4,7 @@ import os
 import numpy as np
 import cv2
 import pafy
+import math
 
 from keras.models import Sequential
 from keras.layers import Dense, Conv2D, Flatten
@@ -164,7 +165,7 @@ def process_video():
     cap = cv2.VideoCapture(stream_url)
 
     ###########################################
-    framerate = round(cap.get(cv2.CAP_PROP_FPS))
+    framerate = math.floor(cap.get(cv2.CAP_PROP_FPS))
     milliseconds = cap.get(cv2.CAP_PROP_POS_MSEC)
     time_interval = 1
     print("Video Framerate: " + str(framerate))
@@ -178,8 +179,8 @@ def process_video():
     while True:
         success, frame = cap.read()
         interval=count%(framerate*time_interval)
-        # if cv2.waitKey(1) == 27:
-        #     break
+        if cv2.waitKey(1) == 27:
+            break
         if success == False:
             break
         if (interval==0):
@@ -287,7 +288,7 @@ def process_video():
 
         count+=1
         frames_read += 1
-        key = cv2.waitKey(1)
+        key = cv2.waitKey(30)
         if key == ord("e"):
             break
     ###########################################
