@@ -106,6 +106,7 @@ export default class Video extends React.Component {
   handleProgress = state => {
     console.log('onProgress', state)
     this.setState(() => ( { elapsed: state.playedSeconds }))
+    this.props.setTime(parseFloat(state.playedSeconds))
     console.log('el: ', fmtMSS(this.state.elapsed))
     // console.log('elapsed = ', fmtMSS(state.playedSeconds))
     // console.log('elapsed: ', fmtMSS(this.state.elapsed))
@@ -148,7 +149,7 @@ export default class Video extends React.Component {
           url={this.state.url}
           pip={this.state.pip}
           playing={this.state.playing}
-          controls={this.state.controls}
+          controls={true}
           light={this.state.light}
           loop={this.state.loop}
           playbackRate={this.state.playbackRate}
