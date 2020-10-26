@@ -21,7 +21,7 @@ from datetime import datetime
 #####################
 
 #####################
-key = 'RGAPI-6ce98738-f84b-4817-b329-c68d33f67cac'
+key = 'api-key'
 more_players_threshold = 2000  # Threshold put up in order to avoid request timeout
 csv_name = 'matches_na.csv'
 #####################
