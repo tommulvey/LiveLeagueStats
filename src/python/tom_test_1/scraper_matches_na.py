@@ -22,6 +22,7 @@ from datetime import datetime
 
 #####################
 key = 'api-key'
+
 more_players_threshold = 2000  # Threshold put up in order to avoid request timeout
 csv_name = 'matches_na.csv'
 #####################
