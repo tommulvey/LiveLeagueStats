@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import '../../styles/Video.css'
 import FaceIcon from '@material-ui/icons/Face';
 // import { purple500, purple600, purple700, 
@@ -12,13 +12,13 @@ const P1 = [ // players from team 1 (blu)
   { name: 'Ignar', pos:'sup' }
 ]
 
-const P2 = { // players from team 2 (red/purpl)
-  'top': {},
-  'jg': {},
-  'mid': {},
-  'bot': {},
-  'sup': {}
-}
+const P2 = [ // players from team 2 (red/purpl)
+  { name: 'Broken Blade', pos:'top' },
+  { name: 'Spica', pos:'jg' },
+  { name: 'Bjergsen', pos:'mid' },
+  { name: 'Doublelift', pos:'bot' },
+  { name: 'BioFrost', pos:'sup' }
+]
 
 const ROWS = [ 
   [P1['top'], P2['top']], 
@@ -28,20 +28,29 @@ const ROWS = [
   [P1['sup'], P2['sup']], 
 ];
 
-export default class PlayerRows extends React.Component {
-  
-  render() {
-    return (
-      <div className="player-rows">
-        {
-          P1.map((p, index) => (
+export const PlayerRows = () => {
+  const [playerData, setPlayerData] = useState(ROWS)
+
+  return (
+    <div className="player-rows">
+      {/* {
+        P1.map((p, index) => (
+          <div className="rows">
+            <div className={p.pos}> <FaceIcon className="playerIcons" /> </div>
+            <div className="playername"> <p> {p.name} </p> </div>
+          </div>
+        ))
+      } */
+        // idea is 5 rows, 2 players per row. same pos on same row
+        playerData.map((players, index) => {
+          return (
             <div className="rows">
-              <div className={p.pos}> <FaceIcon className="playerIcons" /> </div>
-              <div className="playername"> <p> {p.name} </p> </div>
+              <p> yo </p>
             </div>
-          ))
-        }
-      </div>
-    )
-  }
+        )})
+      }
+    </div>
+  )
 }
+
+export default PlayerRows;
