@@ -1,8 +1,7 @@
 import React from "react";
-import PlayerStats from "./VideoComponents/PlayerStats";
+import PlayerRow from "./VideoComponents/PlayerRow";
 import "./VideoComponents/Video";
 import Video from "./VideoComponents/Video";
-import PlayerRow from './VideoComponents/PlayerRow'
 /* static imports */
 import "../styles/Video.css";
 

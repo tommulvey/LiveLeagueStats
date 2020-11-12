@@ -11,7 +11,7 @@ import PlayerRow from "./PlayerRow";
 
 /*eslint-env es6*/
 
-export const PlayerStats = () => {
+/*export const PlayerStats = () => {
   
   const [playerData, setPlayerData]=useState();
   useEffect(() => {
@@ -23,7 +23,7 @@ export const PlayerStats = () => {
       console.log(data)
       })
     },[]);
-  
+
     return (
       <div>
         {playerData ? (
@@ -31,7 +31,7 @@ export const PlayerStats = () => {
             {console.log("Looking for player data")}
             {}
             {Object.keys(playerData).map((id) => playerProfile(id))}
-            {console.log("Found data for player")}
+            
           </Grid>
         ) : (
           <Grid container>
@@ -39,16 +39,19 @@ export const PlayerStats = () => {
             <Typography>Sorry there is nothing</Typography>
             </Grid>
         )}
-      </div>
+      
+      <Grid container>
+      <PlayerRow Playername={playerData.Playername} 
+                 Gold={playerData.Gold}
+                 Killed={playerData.Killed}
+                 Death={playerData.Dearth} 
+                 Assist={playerData.Assist}/> 
+     </Grid>
+     </div>
     );
 
-  return (
-    <Grid container>
-      <PlayerRow data={playerData}/>
-    </Grid>
-  )
 }
-  
+  */
  /* const [playerData, setPlayerData] = useState();
   
     useEffect(() => {

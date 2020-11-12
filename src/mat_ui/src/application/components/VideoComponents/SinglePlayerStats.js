@@ -36,7 +36,7 @@ const Player = (props) => {
       </Grid>
     );
 };
-  return (
+ return (
     <div>
       {playerData ? (
         <Grid container>

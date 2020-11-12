@@ -18,6 +18,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import HomeIcon from '@material-ui/icons/Home';
 import VideoPage from './VideoPage';
+import SchedulePage from './SchedulePage';
 import DateRangeIcon from '@material-ui/icons/DateRange';
 
 const drawerWidth = 240;
