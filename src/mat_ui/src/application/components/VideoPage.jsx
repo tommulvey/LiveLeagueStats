@@ -1,6 +1,4 @@
-import React, { Component, useState } from 'react'
-import { findDOMNode } from 'react-dom'
-import { hot } from 'react-hot-loader'
+import React, { useState } from 'react'
 import PlayerStats from "./VideoComponents/PlayerStats"
 import './VideoComponents/Video'
 import Video from "./VideoComponents/Video"
@@ -11,7 +9,6 @@ import { TimeIntegration } from './Demo/integrations'
 
 export const VideoPage = () => {
   const [time, setTime] = useState(0);
-  const [videoSeconds, setVidSecs] = useState(0);
 
   return (
     <div>
