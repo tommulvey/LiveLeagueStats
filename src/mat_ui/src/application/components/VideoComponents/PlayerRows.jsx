@@ -1,24 +1,24 @@
-import React, { useState } from "react"
+import React from "react"
 import '../../styles/Video.css'
 import FaceIcon from '@material-ui/icons/Face';
 // import { purple500, purple600, purple700, 
 //   purple800, purple900} from '@material-ui/core/colors'
 
 const P1 = [ // players from team 1 (blu)
-  { name: 'Solo', pos:'top' },
-  { name: 'Santorin', pos:'jg' },
-  { name: 'PowerOfEvil', pos:'mid' },
-  { name: 'WildTurtle', pos:'bot' },
-  { name: 'Ignar', pos:'sup' }
+  { name: 'Solo', pos:'top' ,second:'Brkoen Blade',kda:1.1,secondKda:1.2},
+  { name: 'Santorin', pos:'jg' ,second:'Spica',kda:1.2,secondKda:1.1},
+  { name: 'PowerOfEvil', pos:'mid',second:'Bjergsen',kda:1.1,secondKda:1.2},
+  { name: 'WildTurtle', pos:'bot' ,second:'Doublelift',kda:1.1,secondKda:1.2},
+  { name: 'Ignar', pos:'sup',second:'BinFrost' ,kda:1.2}
 ]
 
-const P2 = [ // players from team 2 (red/purpl)
-  { name: 'Broken Blade', pos:'top' },
-  { name: 'Spica', pos:'jg' },
-  { name: 'Bjergsen', pos:'mid' },
-  { name: 'Doublelift', pos:'bot' },
-  { name: 'BioFrost', pos:'sup' }
-]
+const P2 = { // players from team 2 (red/purpl)
+  'top': {},
+  'jg': {},
+  'mid': {},
+  'bot': {},
+  'sup': {}
+}
 
 const ROWS = [ 
   [P1['top'], P2['top']], 
@@ -28,40 +28,30 @@ const ROWS = [
   [P1['sup'], P2['sup']], 
 ];
 
-export const PlayerRows = () => {
-  const [playerData, setPlayerData] = useState(ROWS)
-
-  return (
-    <div className="player-rows">
-      {/* {
-        P1.map((p, index) => (
-          <div className="rows">
-            <div className={p.pos}> <FaceIcon className="playerIcons" /> </div>
-            <div className="playername"> <p> {p.name} </p> </div>
-          </div>
-        ))
-      } */
-        // idea is 5 rows, 2 players per row. same pos on same row
-        playerData.map((players, index) => {
-          return (
-            <div className="rows">
-              <p> yo </p>
-
-// export default class PlayerRows extends React.Component {
+export default class PlayerRows extends React.Component {
   
-//   render() {
-//     return (
-//       <div className="player-rows">
-//         {
-//           P1.map((p, index) => (
-//             <div className="rows">
-//               <div className={p.pos}> <FaceIcon className="playerIcons" /> </div>
-//               <div className="playername"> <p> {p.name} </p> </div>
-//             </div>
-//         )})
-//       }
-//     </div>
-//   )
-// }
-
-export default PlayerRows;
+  render() {
+    return (
+      <div class="player-rows">
+        {
+          P1.map((p, index) => (
+            <div class="rows">
+              <div class={p.pos}> <FaceIcon className="playerIcons" /> </div>
+              <span style={{marginLeft:100+'px',color:'#eeb80f'}}>{p.kda}k</span>
+              <span style={{marginLeft:50+'px',color:'#03DAC6'}}>kda</span>
+              <span style={{marginLeft:50+'px',color:'#03DAC6'}}>kda</span>
+          <span style={{marginLeft:50+'px',color:'#eeb80f'}}>{p.secondKda}k</span>
+              <div style={{marginLeft:400+'px',marginTop:-45+'px',color:'#c158dc'}} > <FaceIcon className="playerIcons" /> </div>
+              <div class="playername"> 
+                 <p> {p.name} </p>
+              </div>
+              <div style={{marginLeft:390+'px',marginTop:-15+'px'}} class="playername"> 
+                 <p> {p.second} </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    )
+  }
+}
