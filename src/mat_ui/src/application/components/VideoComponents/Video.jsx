@@ -137,6 +137,7 @@ export default class Video extends React.Component {
   getDuration = () => {
     return this.state.duration*this.state.played
   }
+
   render() {
     return (
       <div id = "video">

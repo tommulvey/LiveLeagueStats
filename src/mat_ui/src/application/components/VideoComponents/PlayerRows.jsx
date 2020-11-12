@@ -46,11 +46,22 @@ export const PlayerRows = () => {
           return (
             <div className="rows">
               <p> yo </p>
-            </div>
-        )})
-      }
-    </div>
-  )
-}
+
+// export default class PlayerRows extends React.Component {
+  
+//   render() {
+//     return (
+//       <div className="player-rows">
+//         {
+//           P1.map((p, index) => (
+//             <div className="rows">
+//               <div className={p.pos}> <FaceIcon className="playerIcons" /> </div>
+//               <div className="playername"> <p> {p.name} </p> </div>
+//             </div>
+//         )})
+//       }
+//     </div>
+//   )
+// }
 
 export default PlayerRows;

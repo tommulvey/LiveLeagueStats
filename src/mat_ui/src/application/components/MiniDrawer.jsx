@@ -183,11 +183,13 @@ export default function MiniDrawer() {
       
       <main className={classes.content}>
         <div className={classes.toolbar} />
+
         { 
           view===1 && <VideoPage />
           || view===2 && <Schedule />
           || view===3 && <StatsQuery />
         }
+
       </main>
     </div>
   );
