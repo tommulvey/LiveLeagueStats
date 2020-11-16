@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react"; //
 //import axios from "axios";
-import { Grid, Typography, Divider, Button } from "@material-ui/core";
+import { Grid, Typography, Divider, Button, Card, CardContent } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles"
 import mockMatchData from './data'
 
 const useStyles=makeStyles({
-    matchCardStyles:{
-    },
     regionCardStyles:{
         backgroundColor: "#BB86FC"
     }
@@ -14,6 +12,7 @@ const useStyles=makeStyles({
 
 const videoSelected=()=>{
     
+    console.log("User selected a match. Redirecting...")
 }
 
 const LOLEvents=()=>{
@@ -31,6 +30,44 @@ const LOLEvents=()=>{
         return (
             
         <Grid container>
+            <Grid container spacing={4}>
+            <Grid item xs={3}>
+                <Card>
+                    <CardContent>
+                        <Typography align={'center'}>
+                            NA
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
+            <Grid item xs={3}>
+                <Card>
+                    <CardContent>
+                        <Typography align={'center'}>
+                            EU
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
+            <Grid item xs={3}>
+                <Card>
+                    <CardContent>
+                        <Typography align={'center'}>
+                            KR
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
+            <Grid item xs={3}>
+                <Card>
+                    <CardContent>
+                        <Typography align={'center'}>
+                            CH
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
+            </Grid>
             {events.map((eventData) =>{
                 const { startTime,match }=eventData;
                 //console.log(match)
@@ -42,7 +79,7 @@ const LOLEvents=()=>{
                         <Grid item xs={12} spacing={6}>
                             <Typography align="center">{startTime}</Typography>
                             <Divider />
-                            <Button>
+                            <Button onClick={videoSelected}>
                                 <Typography align="center">
                                     <img src={imageOne} alt="new" width="10%" height="10%"/>  {nameOne} vs {nameTwo}  <img src={imageTwo} alt="new" width="10%" height="10%"/>  
                                 </Typography>
@@ -75,7 +112,7 @@ export default LOLEvents
         
         /*<Grid container spacing={4}>
             <Grid item xs={3}>
-                <Card className={classes.regionCardStyles}>
+                <Card>
                     <CardContent>
                         <Typography align={'center'}>
                             NA
@@ -84,7 +121,7 @@ export default LOLEvents
                 </Card>
             </Grid>
             <Grid item xs={3}>
-                <Card className={classes.regionCardStyles}>
+                <Card>
                     <CardContent>
                         <Typography align={'center'}>
                             EU
@@ -93,7 +130,7 @@ export default LOLEvents
                 </Card>
             </Grid>
             <Grid item xs={3}>
-                <Card className={classes.regionCardStyles}>
+                <Card>
                     <CardContent>
                         <Typography align={'center'}>
                             KR
@@ -102,7 +139,7 @@ export default LOLEvents
                 </Card>
             </Grid>
             <Grid item xs={3}>
-                <Card className={classes.regionCardStyles}>
+                <Card>
                     <CardContent>
                         <Typography align={'center'}>
                             CH
