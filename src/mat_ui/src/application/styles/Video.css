@@ -26,6 +26,12 @@ iframe {
   padding-left: 2vw;
 }
 
+.line-chart {
+  height: 10vh;
+  width: 56vw;
+  margin-top: -20vh;
+}
+
 .player-rows {
   padding-top: 1vh;
 }

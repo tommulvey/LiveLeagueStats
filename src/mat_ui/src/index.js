@@ -8,6 +8,7 @@ if (module.hot) {
   console.info('Server-side HMR Enabled.\n')
 }
 
+
 const mainServer = express()
   .use((request, response) => server.handle(request, response))
 
@@ -20,6 +21,8 @@ const mainServer = express()
     }
 
     console.log('Server started at ' + process.env.HOST + ':' + process.env.PORT + '.\n')
+
+    
 
     if (process.env.RAZZLE_STATIC)
       generateStaticSite(serverInstance)

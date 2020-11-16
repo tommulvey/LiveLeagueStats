@@ -5,11 +5,11 @@ import FaceIcon from '@material-ui/icons/Face';
 //   purple800, purple900} from '@material-ui/core/colors'
 
 const P1 = [ // players from team 1 (blu)
-  { name: 'Solo', pos:'top' },
-  { name: 'Santorin', pos:'jg' },
-  { name: 'PowerOfEvil', pos:'mid' },
-  { name: 'WildTurtle', pos:'bot' },
-  { name: 'Ignar', pos:'sup' }
+  { name: 'Solo', pos:'top' ,second:'Brkoen Blade',kda:1.1,secondKda:1.2},
+  { name: 'Santorin', pos:'jg' ,second:'Spica',kda:1.2,secondKda:1.1},
+  { name: 'PowerOfEvil', pos:'mid',second:'Bjergsen',kda:1.1,secondKda:1.2},
+  { name: 'WildTurtle', pos:'bot' ,second:'Doublelift',kda:1.1,secondKda:1.2},
+  { name: 'Ignar', pos:'sup',second:'BinFrost' ,kda:1.2}
 ]
 
 const P2 = { // players from team 2 (red/purpl)
@@ -37,7 +37,17 @@ export default class PlayerRows extends React.Component {
           P1.map((p, index) => (
             <div class="rows">
               <div class={p.pos}> <FaceIcon className="playerIcons" /> </div>
-              <div class="playername"> <p> {p.name} </p> </div>
+              <span style={{marginLeft:100+'px',color:'#eeb80f'}}>{p.kda}k</span>
+              <span style={{marginLeft:50+'px',color:'#03DAC6'}}>kda</span>
+              <span style={{marginLeft:50+'px',color:'#03DAC6'}}>kda</span>
+          <span style={{marginLeft:50+'px',color:'#eeb80f'}}>{p.secondKda}k</span>
+              <div style={{marginLeft:400+'px',marginTop:-45+'px',color:'#c158dc'}} > <FaceIcon className="playerIcons" /> </div>
+              <div class="playername"> 
+                 <p> {p.name} </p>
+              </div>
+              <div style={{marginLeft:390+'px',marginTop:-15+'px'}} class="playername"> 
+                 <p> {p.second} </p>
+              </div>
             </div>
           ))
         }

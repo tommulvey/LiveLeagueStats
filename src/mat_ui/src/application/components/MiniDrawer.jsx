@@ -18,8 +18,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import EqualizerIcon from '@material-ui/icons/Equalizer';
 import HomeIcon from '@material-ui/icons/Home';
 import VideoPage from './VideoPage';
-import SchedulePage from './SchedulePage';
 import DateRangeIcon from '@material-ui/icons/DateRange';
+import SchedulePage from './Schedule/SchedulePage';
+import StatsQuery from './StatsQueryPage/StatsQuery';
 
 const drawerWidth = 240;
 
@@ -98,6 +99,13 @@ export default function MiniDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [view, setView] = React.useState(1);
+  const [gameId, setGameId] = React.useState(null); //controls what user sees game wise
+  /*
+    1: main page
+    2: sched
+    3: stats
+  */
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -106,6 +114,15 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const handleMenuSelect = (event, index) => {
+    if (index > 3 || index <0 ){
+      console.log('do nothing')
+    }
+
+    setView(index+1)
+    console.log('yo index is ', index+1)
+  }
 
   return (
     <div className={classes.root}>
@@ -154,7 +171,7 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {['Main','Schedule', 'Stats'].map((text, index) => (
-            <ListItem button key={text}>
+            <ListItem button key={text} onClick={(event) => handleMenuSelect(event, index)} >
               <ListItemIcon>{ MENU[text] }</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
@@ -167,8 +184,12 @@ export default function MiniDrawer() {
       <main className={classes.content}>
         <div className={classes.toolbar} />
 
-        <VideoPage />
-      
+        { 
+          view===1 && <VideoPage />
+          || view===2 && <SchedulePage />
+          || view===3 && <StatsQuery />
+        }
+
       </main>
     </div>
   );
