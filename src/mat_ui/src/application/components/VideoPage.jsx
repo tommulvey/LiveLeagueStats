@@ -12,17 +12,20 @@ export const VideoPage = () => {
 
   return (
     <div>
-    <div className="vid-page-wit-stats">
-      <TimeIntegration time={time}/>
-      <div className="left-vid">
-        <Video setTime={setTime}/>
+      <div className="vid-page-wit-stats">
+        <TimeIntegration time={time}/>
+        <div className="left-vid">
+          <Video setTime={setTime}/>
+        </div>
+        <div className="right-stats-players">
+          <PlayerStats />
+        </div>
       </div>
-      <div className="right-stats-players">
-        <PlayerStats />
+      <div className="line-chart">
+          <Data />
       </div>
-    </div>
-    <div className="line-chart">
-        <Data />
+      <div>
+        
       </div>
     </div>
   )
