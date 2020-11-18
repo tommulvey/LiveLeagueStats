@@ -8,7 +8,6 @@ if (module.hot) {
   console.info('Server-side HMR Enabled.\n')
 }
 
-
 const mainServer = express()
   .use((request, response) => server.handle(request, response))
 

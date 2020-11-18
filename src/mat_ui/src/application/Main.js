@@ -96,7 +96,6 @@ export default class Main extends Component {
     this.state = {
       open: false
 	  }
-
   }
 
   handleRequestClose = () => this.setState({
