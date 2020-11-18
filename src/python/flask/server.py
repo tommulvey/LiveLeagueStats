@@ -9,7 +9,7 @@ import pymongo
 
 app = Flask(__name__)
 
-myclient = pymongo.MongoClient("mongodb+srv://admin:kkCjl3lr46GHOAOU@cluster0-njbww.mongodb.net/gameData?authSource=admin&replicaSet=Cluster0-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass%20Community&retryWrites=true&ssl=true")
+myclient = pymongo.MongoClient("yoputurihere")
 mydb = myclient["gameData"]
 
 def parse_json(data):
