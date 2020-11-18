@@ -3,7 +3,10 @@ import '../../styles/Video.css'
 import FaceIcon from '@material-ui/icons/Face';
 // import { purple500, purple600, purple700, 
 //   purple800, purple900} from '@material-ui/core/colors'
-
+// https://ddragon.leagueoflegends.com/cdn/10.19.1/img/champion/Annie.png
+// what does url look like with space in champ name????
+// ans: https://ddragon.leagueoflegends.com/cdn/10.19.1/img/champion/TwistedFate.png
+// 
 const P1 = [ // players from team 1 (blu)
   { name: 'Solo', pos:'top' ,second:'Brkoen Blade',kda:1.1,secondKda:1.2},
   { name: 'Santorin', pos:'jg' ,second:'Spica',kda:1.2,secondKda:1.1},
