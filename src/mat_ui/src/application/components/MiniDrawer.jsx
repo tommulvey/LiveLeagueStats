@@ -19,7 +19,7 @@ import EqualizerIcon from '@material-ui/icons/Equalizer';
 import HomeIcon from '@material-ui/icons/Home';
 import VideoPage from './VideoPage';
 import DateRangeIcon from '@material-ui/icons/DateRange';
-import Schedule from './Schedule/Schedule';
+import SchedulePage from './Schedule/SchedulePage';
 import StatsQuery from './StatsQueryPage/StatsQuery';
 
 const drawerWidth = 240;
@@ -186,7 +186,7 @@ export default function MiniDrawer() {
 
         { 
           view===1 && <VideoPage />
-          || view===2 && <Schedule />
+          || view===2 && <SchedulePage />
           || view===3 && <StatsQuery />
         }
 
