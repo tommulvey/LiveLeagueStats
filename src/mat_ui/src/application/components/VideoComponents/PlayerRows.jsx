@@ -13,6 +13,7 @@ import { ReactComponent as sup } from '../logos/sup.svg';
 // what does url look like with space in champ name????
 // ans: https://ddragon.leagueoflegends.com/cdn/10.19.1/img/champion/TwistedFate.png
 // 
+
 const icons = {
   5: "https://am-a.akamaihd.net/image/?resize=375:&f=https%3A%2F%2Flolstatic-a.akamaihd.net%2Fesports-assets%2Fproduction%2Fplayer%2Fbroken-blade-jal9l7d2.png",
   6: "https://am-a.akamaihd.net/image/?resize=375:&f=https%3A%2F%2Flolstatic-a.akamaihd.net%2Fesports-assets%2Fproduction%2Fplayer%2Fspica-899o1j6u.png",

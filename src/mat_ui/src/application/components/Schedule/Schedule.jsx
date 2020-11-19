@@ -27,7 +27,6 @@ export default function Schedule(setGameId) {
     setOpen((prevOpen) => !prevOpen);
   };
 
-
   const handleClose = (event) => {
     // console.log('event is :', event)
     // setGameId(event.target.value)
@@ -35,6 +34,7 @@ export default function Schedule(setGameId) {
       return;
     }
     // console.log('id is :', gameId)
+
     setOpen(false);
   };
 
@@ -80,6 +80,7 @@ export default function Schedule(setGameId) {
                     <MenuItem onClick={handleClose} value="104174992730350843">104174992730350843</MenuItem>
                     <MenuItem onClick={handleClose} value="104174992730350844">104174992730350844</MenuItem>
                     <MenuItem onClick={handleClose} value="104174992730350845">104174992730350845</MenuItem>
+
                   </MenuList>
                 </ClickAwayListener>
               </Paper>

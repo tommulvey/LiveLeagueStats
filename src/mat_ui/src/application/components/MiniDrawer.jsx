@@ -96,6 +96,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export const MiniDrawer = () => {
   const classes = useStyles();
   const theme = useTheme();
@@ -199,3 +200,4 @@ export const MiniDrawer = () => {
 // MiniDrawer.propTypes = {
 //   setGameId: PropTypes.function
 // };
+
