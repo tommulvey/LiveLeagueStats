@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types';
 import PlayerStats from "./VideoComponents/PlayerStats"
 import './VideoComponents/Video'
 import Video from "./VideoComponents/Video"
 /* static imports */
 import '../styles/Video.css'
-import { Data } from './Charts/Charts'
+// import { Data } from './Charts/Charts'
 import { TimeIntegration } from './Demo/integrations'
 
 export const VideoPage = () => {
@@ -22,7 +23,7 @@ export const VideoPage = () => {
         </div>
       </div>
       <div className="line-chart">
-          <Data />
+          {/* <Data /> */}
       </div>
       <div>
         
@@ -30,6 +31,11 @@ export const VideoPage = () => {
     </div>
   )
   
+}
+
+VideoPage.propTypes = {
+  gameId: PropTypes.string,
+  setGameId: PropTypes.function
 }
 
 export default VideoPage
