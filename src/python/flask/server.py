@@ -7,10 +7,12 @@ from bson import json_util, ObjectId
 import json
 from types import SimpleNamespace
 import pymongo
+import math
+from flask_cors import CORS
 
 app = Flask(__name__)
-
-myclient = pymongo.MongoClient("cum")
+CORS(app)
+myclient = ""
 mydb = myclient["gameData"]
 
 def parse_json(data):
@@ -83,6 +85,17 @@ def teamIcons(id):
 
     return parse_json(res)
 
+@app.route('/playerIcon/<id>', methods=['GET'])
+def playerIcon(id):
+    # take an id, rn just a team id, and get res obj
+    mydb = myclient["gameData"]
+    mycol = mydb["idToIcon"]
+
+    #print("trying to find icon fo id="+str(id)) 
+
+    res = mycol.find( {"playerId":str(id)} )
+
+    return parse_json(res)
 
 @app.route('/matchMetadata/<id>', methods=['GET'])
 def matchMetadata(id):
@@ -183,6 +196,53 @@ def pieCharts(gameId="104174992730350841", secs=0):
 
     r = [T1_DMG, T2_DMG,T1_GLD, T2_GLD,T1_KLS,T2_KLS,T1_DTS,T2_DTS,T1_CS,T2_CS,T1_WP,T2_WP,T1_WD,T2_WD]
     return jsonify(r)
+
+
+def kFormatter(num) :
+    if num < 1000 : 
+        return str(num)
+        # change to 2.5k or some shit later, not 2.441
+    return str((num/1000))+'k'
+
+@app.route('/prettyPlayerStats/<gameId>/<secs>', methods=['GET'])
+def prettyPlayerStats(gameId="104174992730350841", secs=0):
+    # 104174992730350841 
+    mydb = myclient["gameData"]
+    mycol = mydb["details"]
+
+    # { p1: kda, gold}
+
+    if int(secs) < 0:
+        # return a mocked shit
+        r=[]
+        for p in range(1,11):
+            r.append({'playerId': p, 'kda':'--', 'gold': '--' })
+        return jsonify(r)
+
+    #print("trying to find probs fo id="+str(gameId)) 
+    res = mycol.find_one( {"gameId":str(gameId), "secs_passed" : {"$eq": int(secs)}} )
+    # pi charts are 
+    # 1) damge share per team
+    # 2) total gold earn per team
+#    data={[
+#     { title: 'One', value: 10, color: '#E38627' },
+#     { title: 'Two', value: 15, color: '#C13C37' },
+#     { title: 'Three', value: 20, color: '#6A2135' },
+#   ]}
+    r = []
+
+    try: 
+        players = res['participants']
+        for p in players:
+            kda = (int(p['kills'])+int(p['assists']))/int(p['deaths']) if int(p['deaths']) is not 0 else (int(p['kills'])+int(p['assists']))/(int(p['deaths'])+1)
+            r.append({'playerId':p['participantId'], 'kda':kda, 'gold': kFormatter(p['totalGoldEarned']) })
+
+        return jsonify(r)
+    except:
+        r=[]
+        for p in range(1,11):
+            r.append({'playerId': p, 'kda':'--', 'gold': '--' })
+        return jsonify(r)
 
 if __name__ == '__main__':
     app.run(debug=True)
