@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react"; //
 //import axios from "axios";
-import { Grid, Typography, Divider, Button, Card, CardContent } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles"
+import { Grid, Typography, Button, Card, CardContent } from "@material-ui/core";
+//import { makeStyles } from "@material-ui/core/styles"
 import mockMatchData from './data'
 
-const useStyles=makeStyles({
+/*const useStyles=makeStyles({
     regionCardStyles:{
         backgroundColor: "#BB86FC"
     }
-});
+});*/
 
-const videoSelected=()=>{
-
-    console.log("User selected a match. Redirecting...");
+function videoSelected(id){
+    console.log("User selected match id:",id+".","Redirecting...");
+    //console.log(id)
 }
+
 
 const LOLEvents=()=>{
     const [matchData, setMatchData]=useState(mockMatchData);
@@ -30,7 +31,7 @@ const LOLEvents=()=>{
         return (
             
         <Grid container>
-            <Grid container spacing={4}>
+            <Grid container spacing={10}>
             <Grid item xs={3}>
                 <Card>
                     <CardContent>
@@ -72,19 +73,52 @@ const LOLEvents=()=>{
                 const { startTime,match }=eventData;
                 //console.log(match)
                 const { teams, id }=match;
-                console.log(id);
+                //console.log(id);
                 const { name:nameOne, image:imageOne}=teams[0];
                 const { name:nameTwo, image:imageTwo}=teams[1];
+                const matchDate=startTime.slice(0,10)
+                const matchStart=startTime.slice(11,16)
                 return (
-                        <Grid item xs={12} spacing={6}>
-                            <Button onClick={videoSelected}>
-                            <div><Typography align="center">{startTime}</Typography></div>
-                                <Typography align="center">
-                                    <img src={imageOne} alt="new" width="10%" height="10%"/>  {nameOne} vs {nameTwo}  <img src={imageTwo} alt="new" width="10%" height="10%"/>  
-                                </Typography>
-                            </Button>
-                            <Divider />
-                        </Grid>
+                    <Button keys={id} variant="outlined" onClick={videoSelected.bind(videoSelected,id)}>
+                    
+                    <Grid container item xs={12} spacing={2}>
+                                <Grid item xs={1}>
+                                    <div>{matchDate}</div>
+                                    <div>{matchStart}</div>
+                                </Grid>
+                                <Grid container item xs={11} justify='center'>
+                                    <Grid item xs={2}>
+                                        <Typography align="right">
+                                            {nameOne} 
+                                        </Typography>
+                                        </Grid>
+                                    <Grid item xs={1}>
+                                        <Typography>
+                                        <img src={imageOne} alt="new" width="50%" height="50%"/>
+                                        </Typography>
+                                        </Grid>
+                                    
+                                   
+                                        <Typography align="center">
+                                            vs
+                                        </Typography>
+                                        
+                                    <Grid item xs={1}>  
+                                        <Typography>
+                                        <img src={imageTwo} alt="new" width="50%" height="50%"/>
+                                        </Typography>
+                                        </Grid>
+                                    <Grid item xs={2}>
+                                        <Typography align='left'>
+                                        {nameTwo}
+                                        </Typography>
+                                        </Grid>
+                                          </Grid>
+                                    
+                            </Grid>
+                       
+                    </Button>
+                    
                 )
             })}
         </Grid>
