@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
@@ -17,9 +17,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Schedule() {
+export default function Schedule(setGameId) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  // const [gameId, setGameId] = React.useState("104174992730350841")
   const anchorRef = React.useRef(null);
 
   const handleToggle = () => {
@@ -27,9 +28,12 @@ export default function Schedule() {
   };
 
   const handleClose = (event) => {
+    // console.log('event is :', event)
+    // setGameId(event.target.value)
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
+    // console.log('id is :', gameId)
 
     setOpen(false);
   };
@@ -53,13 +57,6 @@ export default function Schedule() {
 
   return (
     <div className={classes.root}>
-      <Paper className={classes.paper}>
-        <MenuList>
-          <MenuItem>Profile</MenuItem>
-          <MenuItem>My account</MenuItem>
-          <MenuItem>Logout</MenuItem>
-        </MenuList>
-      </Paper>
       <div>
         <Button
           ref={anchorRef}
@@ -67,7 +64,7 @@ export default function Schedule() {
           aria-haspopup="true"
           onClick={handleToggle}
         >
-          Toggle Menu Grow
+          Choose a Game
         </Button>
         <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
           {({ TransitionProps, placement }) => (
@@ -78,9 +75,12 @@ export default function Schedule() {
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={handleClose} value="104174992730350841">104174992730350841</MenuItem>
+                    <MenuItem onClick={handleClose} value="104174992730350842">104174992730350842</MenuItem>
+                    <MenuItem onClick={handleClose} value="104174992730350843">104174992730350843</MenuItem>
+                    <MenuItem onClick={handleClose} value="104174992730350844">104174992730350844</MenuItem>
+                    <MenuItem onClick={handleClose} value="104174992730350845">104174992730350845</MenuItem>
+
                   </MenuList>
                 </ClickAwayListener>
               </Paper>

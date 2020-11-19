@@ -6,7 +6,8 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { red } from '@material-ui/core/colors'
 import baseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import MiniDrawer from './components/MiniDrawer';
+import { MiniDrawer } from './components/MiniDrawer';
+
 
 const getTheme = () => {
   let overwrites = {};

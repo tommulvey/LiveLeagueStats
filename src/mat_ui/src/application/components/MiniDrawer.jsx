@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -95,12 +96,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default MiniDrawer = () => {
+
+export const MiniDrawer = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [view, setView] = React.useState(1);
-  const [gameId, setGameId] = React.useState(null); //controls what user sees game wise
+  const [gameId, setGameId] = useState('104174992730350841'); //controls what user sees game wise
   /*
     1: main page
     2: sched
@@ -185,8 +187,8 @@ export default MiniDrawer = () => {
         <div className={classes.toolbar} />
 
         { 
-          view===1 && <VideoPage />
-          || view===2 && <Schedule />
+          view===1 && <VideoPage gameId={gameId} />
+          || view===2 && <Schedule setGameId={setGameId} />
           || view===3 && <StatsQuery />
         }
 
@@ -194,3 +196,8 @@ export default MiniDrawer = () => {
     </div>
   );
 }
+
+// MiniDrawer.propTypes = {
+//   setGameId: PropTypes.function
+// };
+
