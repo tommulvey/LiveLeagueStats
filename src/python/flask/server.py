@@ -10,7 +10,8 @@ import pymongo
 
 app = Flask(__name__)
 
-myclient = pymongo.MongoClient("cum")
+myclient = pymongo.MongoClient("yoputurihere")
+
 mydb = myclient["gameData"]
 
 def parse_json(data):
@@ -37,7 +38,7 @@ def get_sec_stats_10s(game_id, secs_passed):
     mycol = mydb["details"]
 
     #print("trying to find id="+str(game_id)+" with sec="+str(secs_passed))
-
+    
     res = mycol.find( {"gameId":str(game_id), "secs_passed":{ "$gte": 2, "$lte": 100 } } )
     for i in res:
         print(i)
@@ -63,7 +64,7 @@ def get_sec_stats_60s(game_id, secs_passed):
     # seconds_elapsed = request.form.get('seconds_elapsed')
     mydb = myclient["gameData"]
     mycol = mydb["details"]
-
+    
     #print("trying to find id="+str(game_id)+" with sec="+str(secs_passed))
 
     res = mycol.find( {"gameId":str(game_id),"secs_passed":{ "$gte": int(secs_passed), "$lte":int(secs_passed+60)} } )
@@ -89,7 +90,7 @@ def matchMetadata(id):
     # id is esports matchid
     mydb = myclient["gameData"]
     mycol = mydb["participantsByGameId"]
-
+    
     #print("trying to find metadata fo id="+str(id)) 
 
     res = mycol.find_one( {"esportsGameId":str(id)} )
