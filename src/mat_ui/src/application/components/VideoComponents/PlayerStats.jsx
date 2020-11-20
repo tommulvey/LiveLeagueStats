@@ -1,11 +1,9 @@
 import React from "react"
-import PlayerRows from './PlayerRows'
+import { PlayerRows } from './PlayerRows'
 import '../../styles/Video.css'
 
-export default class PlayerStats extends React.Component {
-  render() {
+export const PlayerStats = ({gameId, time}) => {
     return (
-      <PlayerRows />
+      <PlayerRows gameId={gameId} time={time}/>
     )
-  }
 }
