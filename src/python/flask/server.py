@@ -12,7 +12,9 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
+
 myclient = myclient = ""
+
 mydb = myclient["gameData"]
 
 def parse_json(data):
