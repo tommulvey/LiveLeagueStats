@@ -31,6 +31,17 @@ iframe {
   margin-top: -20vh;
 }
 
+.pie-chart {
+  height: 40vh;
+  width: 40vw;
+  float: right;
+}
+
+td {
+  height: 20em;
+  width: 20em;
+}
+
 .player-rows {
   padding-top: 1vh;
 }
@@ -55,7 +66,7 @@ iframe {
   background-color: DodgerBlue; */
   float: left;
   font-family: Arial;
-  width: 50%;
+  width: 42%;
 }
 
 .playerRight {
@@ -63,7 +74,20 @@ iframe {
   background-color: DodgerBlue; */
   float: right;
   font-family: Arial;
-  width: 50%;
+  width: 47%;
+  padding-left: .5em;
+}
+
+.pcard {
+  width:20%;
+  text-align:center;
+  display:block;
+  background-color: transparent;
+  border: 1px solid transparent;
+  margin-right: 10px;
+  margin-bottom: 1px;
+  float:left;
+  font-size: .75em;
 }
 
 .rightImg {
@@ -82,6 +106,10 @@ iframe {
   height: 1vh;
   margin-top: 1.5em;
   margin-left: -.8em;
+}
+
+.roleLogo {
+  margin-right: 1em;
 }
 
 .top {

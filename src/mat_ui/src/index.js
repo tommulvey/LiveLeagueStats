@@ -24,8 +24,8 @@ const mainServer = express()
 
     
 
-    if (process.env.RAZZLE_STATIC)
-      generateStaticSite(serverInstance)
+    // if (process.env.RAZZLE_STATIC)
+    //   generateStaticSite(serverInstance)
   })
 
 export default mainServer

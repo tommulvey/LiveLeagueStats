@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react"
 import '../../styles/Video.css'
 import FaceIcon from '@material-ui/icons/Face';
 import MonetizationOn from '@material-ui/icons/MonetizationOn'
-import { ReactComponent as top } from '../logos/top.svg';
-import { ReactComponent as jg } from '../logos/jg.svg';
-import { ReactComponent as mid } from '../logos/mid.svg';
-import { ReactComponent as bot } from '../logos/bot.svg';
-import { ReactComponent as sup } from '../logos/sup.svg';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 // import { purple500, purple600, purple700, 
 //   purple800, purple900} from '@material-ui/core/colors'
 // https://ddragon.leagueoflegends.com/cdn/10.19.1/img/champion/Annie.png
@@ -26,6 +28,8 @@ const icons = {
   3: "https://am-a.akamaihd.net/image/?resize=375:&f=http%3A%2F%2Fstatic.lolesports.com%2Fplayers%2F1591816644418_fly-wildturtle.png",
   4: "https://am-a.akamaihd.net/image/?resize=375:&f=http%3A%2F%2Fstatic.lolesports.com%2Fplayers%2F1591816604180_fly-ignar.png"
 }
+
+const baseUrl = "https://raw.githubusercontent.com/mulvenstein/LiveLeagueStats/a60e638bf7f49a8b7ba14666bee9ca83dd4fcdbf/src/mat_ui/src/application/components/logos/"
 
 const P1 = [ // players from team 1 (blu)
   { name: 'Solo', pos:'top' ,second:'Brkoen Blade',kda:1.1,secondKda:1.2},
@@ -50,6 +54,10 @@ const ROWS = [
   [P1['bot'], P2['bot']], 
   [P1['sup'], P2['sup']], 
 ];
+
+function round(value, decimals) {
+  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+ } 
 
 const getTime = (time) => {
   return (time).toFixed()-243+""
@@ -137,28 +145,33 @@ export const PlayerRows = ({ gameId, time} ) => {
 
       <div className="top basePlayer" style={{width: "37.5vw"}}>
         <div className="playerLeft">
-          <img 
-            src={icons[0]}
-            width={"25%"}
-            height={"25%"}
-            alt="Top T1"
-            id="leftImg"
-          />
+          <div className="pcard" style={{display: 'inline'}}>
+            <img 
+              src={icons[0]}
+              width={"82px"}
+              height={"65px"}
+              alt="Top T1"
+              id="leftImg"
+            />
+            <p> Solo </p>
+          </div>
+          
           <MonetizationOn colorPrimary="#FFD700" size="1.5em"/>
-          { data[0] ? data[0].gold : '--' }
-          <img src="./../icons/kda.svg" alt="kda logo" />
-          { data[0] ? data[0].kda : '--'}
+          <p style={{display: 'inline', padding:'.5em'}} > { data[0] ? data[0].gold : '--' } </p>
+          <img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" />
+          <p style={{display: 'inline', padding:'.5em'}} > { data[0] ? data[0].kda : '--'} </p>
         </div>
+        <img src={baseUrl+"/top.svg"} height={"40vh"} width={"6%"} alt="top" id="roleLogo" />
         <div className="playerRight">
-          { data[5] ? data[5].kda : '--'}
-          <img src="./../icons/kda.svg" alt="kda logo" />
-          { data[5] ? data[5].gold : '--' }
+          <p style={{display: 'inline', padding:'.5em'}} > { data[5] ? data[5].kda : '--'} </p>
+          <img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" />
+          <p style={{display: 'inline', padding:'.5em'}} > { data[5] ? data[5].gold : '--'} </p>
           <MonetizationOn colorPrimary="#FFD700" size="1.5em"/>
           <img 
             src={icons[5]}
-            width={"25%"}
-            height={"25%"}
-            alt="Top T2"
+            width={"82px"}
+            height={"65px"}
+            alt="JG T2"
             id="rightImg"
           />
         </div>
@@ -166,37 +179,124 @@ export const PlayerRows = ({ gameId, time} ) => {
 
       <div className="jg basePlayer" style={{width: "37.5vw"}}>
         <div className="playerLeft">
-         <p> { data[1] ? data[1].gold : '--' } { data[1] ? data[1].kda : '--'} </p>
+        <div className="pcard" style={{display: 'inline'}}>
+            <img 
+              src={icons[1]}
+              width={"82px"}
+              height={"65px"}
+              alt="Top T2"
+              id="leftImg"
+            />
+            <p> Santorin </p>
+          </div>
+          <MonetizationOn colorPrimary="#FFD700" size="1.5em"/>
+          <p style={{display: 'inline', padding:'.5em'}} > { data[1] ? data[1].gold : '--' } </p>
+          <img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" />
+          <p style={{display: 'inline', padding:'.5em'}} > { data[1] ? data[1].kda : '--'} </p>
         </div>
+        <img src={baseUrl+"/jg.svg"} height={"40vh"} width={"6%"} alt="jg" id="roleLogo" />
         <div className="playerRight">
-          <p> { data[6] ? data[6].gold : '--' } { data[6] ? data[6].kda : '--'} </p>
+          <p style={{display: 'inline', padding:'.5em'}} > { data[6] ? data[6].kda : '--'} </p>
+          <img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" />
+          <p style={{display: 'inline', padding:'.5em'}} > { data[6] ? data[6].gold : '--'} </p>
+          <MonetizationOn colorPrimary="#FFD700" size="1.5em"/>
+          <img 
+            src={icons[6]}
+            width={"82px"}
+            height={"65px"}
+            alt="JG T2"
+            id="rightImg"
+          />
         </div>
       </div>
 
       <div className="mid basePlayer" style={{width: "37.5vw"}}>
         <div className="playerLeft">
-          <p> { data[2] ? data[2].gold : '--' } { data[2] ? data[2].kda : '--'} </p>
+          <img 
+            src={icons[2]}
+            width={"82px"}
+            height={"65px"}
+            alt="MID T1"
+            id="leftImg"
+          />
+          <MonetizationOn colorPrimary="#FFD700" size="1.5em"/>
+          <p style={{display: 'inline', padding:'.5em'}} > { data[2] ? data[2].gold : '--' } </p>
+          <img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" />
+          <p style={{display: 'inline', padding:'.5em'}} > { data[2] ? data[2].kda : '--'} </p>
         </div>
+        <img src={baseUrl+"/mid.svg"} height={"40vh"} width={"6%"} alt="mid" id="roleLogo" />
         <div className="playerRight">
-          <p> { data[7] ? data[7].gold : '--' } { data[7] ? data[7].kda : '--'} </p>
+          <p style={{display: 'inline', padding:'.5em'}} > { data[7] ? data[7].kda : '--'} </p>
+          <img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" />
+          <p style={{display: 'inline', padding:'.5em'}} > { data[7] ? data[7].gold : '--'} </p>
+          <MonetizationOn colorPrimary="#FFD700" size="1.5em"/>
+          <img 
+            src={icons[7]}
+            width={"82px"}
+            height={"65px"}
+            alt="MID T2"
+            id="rightImg"
+          />
         </div>
       </div>
 
       <div className="bot basePlayer" style={{width: "37.5vw"}}>
         <div className="playerLeft">
-          <p> { data[3] ? data[3].gold : '--' } { data[3] ? data[3].kda : '--'} </p>
+          <img 
+            src={icons[3]}
+            width={"82px"}
+            height={"65px"}
+            alt="BOT T1"
+            id="leftImg"
+          />
+          <MonetizationOn colorPrimary="#FFD700" size="1.5em"/>
+          <p style={{display: 'inline', padding:'.5em'}} > { data[3] ? data[3].gold : '--' } </p>
+          <img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" />
+          <p style={{display: 'inline', padding:'.5em'}} > { data[3] ? data[3].kda : '--'} </p>
         </div>
+        <img src={baseUrl+"/bot.svg"} height={"40vh"} width={"6%"} alt="bot" id="roleLogo" />
         <div className="playerRight">
-         <p> { data[8] ? data[8].gold : '--' } { data[8] ? data[8].kda : '--'} </p>
+          <p style={{display: 'inline', padding:'.5em'}} > { data[8] ? data[8].kda : '--'} </p>
+          <img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" />
+          <p style={{display: 'inline', padding:'.5em'}} > { data[8] ? data[8].gold : '--'} </p>
+          <MonetizationOn colorPrimary="#FFD700" size="1.5em"/>
+          <img 
+            src={icons[8]}
+            width={"82px"}
+            height={"65px"}
+            alt="BOT T2"
+            id="rightImg"
+          />
         </div>
       </div>
 
-      <div className="sup basePlayer" style={{width: "37.5vw"}}>
+      <div className="bot basePlayer" style={{width: "37.5vw"}}>
         <div className="playerLeft">
-          <p> { data[4] ? data[4].gold : '--' } { data[4] ? data[4].kda : '--'} </p>
+          <img 
+            src={icons[4]}
+            width={"82px"}
+            height={"65px"}
+            alt="SUP T1"
+            id="leftImg"
+          />
+          <MonetizationOn colorPrimary="#FFD700" size="1.5em"/>
+          <p style={{display: 'inline', padding:'.5em'}} > { data[4] ? data[4].gold : '--' } </p>
+          <img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" />
+          <p style={{display: 'inline', padding:'.5em'}} > { data[4] ? data[4].kda : '--'} </p>
         </div>
+        <img src={baseUrl+"/sup.svg"} height={"40vh"} width={"6%"} alt="sup" id="roleLogo" />
         <div className="playerRight">
-          <p> { data[9] ? data[9].gold : '--' } { data[9] ? data[9].kda : '--'} </p>
+          <p style={{display: 'inline', padding:'.5em'}} > { data[9] ? data[9].kda : '--'} </p>
+          <img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" />
+          <p style={{display: 'inline', padding:'.5em'}} > { data[9] ? data[9].gold : '--'} </p>
+          <MonetizationOn colorPrimary="#FFD700" size="1.5em"/>
+          <img 
+            src={icons[9]}
+            width={"82px"}
+            height={"65px"}
+            alt="SUP T2"
+            id="rightImg"
+          />
         </div>
       </div>
       {

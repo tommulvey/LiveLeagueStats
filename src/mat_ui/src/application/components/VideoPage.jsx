@@ -6,12 +6,13 @@ import './VideoComponents/Video'
 import Video from "./VideoComponents/Video"
 /* static imports */
 import '../styles/Video.css'
-// import { Data } from './Charts/Charts'
+import { LineComponent } from './LineComponent/LineComponent'
 import { TimeIntegration } from './Demo/integrations'
+import { PieChartComponents } from './VideoComponents/PieChartComponents'
 
 export const VideoPage = (gameId) => {
   const [time, setTime] = useState(0);
-
+  // const [pieChartData, setPieChartData] = useState([])
   return (
     <div>
       <div className="vid-page-wit-stats">
@@ -25,10 +26,10 @@ export const VideoPage = (gameId) => {
         </div>
       </div>
       <div className="line-chart">
-          {/* <Data /> */}
+          <LineComponent gameId={gameId} time={time}/>
       </div>
-      <div>
-        
+      <div className="pie-chart">
+        <PieChartComponents gameId={gameId} time={time} />
       </div>
     </div>
   )

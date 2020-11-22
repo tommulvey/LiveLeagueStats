@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { PieChart } from '@react-minimal-pie-chart';
 
 
-export const PieChartDMG({data}) = () => {
+export const PieChartDMG = (data) => {
   const [selected, setSelected] = useState(0);
   const [hovered, setHovered] = useState(undefined);
 
