@@ -12,7 +12,9 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-myclient = myclient = pymongo.MongoClient("mongodb+srv://admin:kkCjl3lr46GHOAOU@cluster0-njbww.mongodb.net/gameData?authSource=admin&replicaSet=Cluster0-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass%20Community&retryWrites=true&ssl=true")
+
+myclient = myclient = ""
+
 mydb = myclient["gameData"]
 
 def parse_json(data):
@@ -256,6 +258,55 @@ def prettyPlayerStats(gameId="104174992730350841", secs=0):
         r=[]
         for p in range(1,11):
             r.append({'playerId': p, 'kda':'--', 'gold': '--' })
+        return jsonify(r)
+
+
+@app.route('/barGraphs/<gameId>/<secs>', methods=['GET'])
+def barChartByGameIdAndSecs(gameId="104174992730350841", secs=0):
+    # 104174992730350841 
+    mydb = myclient["gameData"]
+    mycol = mydb["window"]
+
+    # bar 1: total gold between teams
+    # bar 2: total kills
+    # bar 3: total towers
+    # bar 4: total dragons
+    # schea ret : [(blue, red), (....)]
+    res = mycol.find_one( {"gameId":str(gameId), "secs_passed" : {"$eq": int(secs)}} )
+    r = []
+    # for i in res:
+    #     a = ()
+    #     r.append({'x': int(i['secs']), 'y':float(100-float(i['red'])) })
+    try: 
+        # print(res)
+        # input()
+        r = {}
+        blue_team = res['blueTeam']
+        red_team = res['redTeam']
+        # print(blue_team)
+        
+        
+        # for p in players: #"{:.2f}".format
+        #     kda = "{:.2f}".format((int(p['kills'])+int(p['assists']))/int(p['deaths'])) if int(p['deaths']) is not 0 else "{:.2f}".format((int(p['kills'])+int(p['assists']))/(int(p['deaths'])+1))
+        #     r.append({'playerId':p['participantId'], 'kda':kda, 'gold': kFormatter(p['totalGoldEarned']) })
+
+        # r.append((blue_team['totalGold'], red_team['totalGold']))
+        # r.append((blue_team['totalKills'], red_team['totalKills']))
+        # r.append((blue_team['towers'], red_team['towers']))
+        # r.append((len(blue_team['dragons']), len(red_team['dragons'])))
+
+        t_gold = blue_team['totalGold'] + red_team['totalGold']; t_kills = 0; t_towers = 0; t_dragons = 0
+        bg = 0; rg =0;
+        r['blue'] = [blue_team['totalGold'], blue_team['totalKills'], blue_team['towers'], len(blue_team['dragons'])]
+        r['red'] = [red_team['totalGold'], red_team['totalKills'], red_team['towers'], len(red_team['dragons'])]
+
+        return jsonify(r)
+    except:
+        print("except")
+        r={
+            'red':[0,0,0,0],
+            'blue' :[0,0,0,0]
+        }
         return jsonify(r)
 
 if __name__ == '__main__':

@@ -5,6 +5,10 @@
 		"static": "cross-env RAZZLE_STATIC=true razzle build && cross-env NODE_ENV=production node build/server.js"
 	},
 	"dependencies": {
+		"@loadable/babel-plugin": "^5.13.2",
+		"@loadable/component": "^5.14.1",
+		"@loadable/server": "^5.14.0",
+		"@loadable/webpack-plugin": "^5.14.0",
 		"@material-ui/core": "^4.11.0",
 		"@material-ui/icons": "^4.9.1",
 		"@material-ui/styles": "^4.10.0",
@@ -13,6 +17,8 @@
 		"compression": "1.x",
 		"express": "4.x",
 		"html-minifier": "3.x",
+		"loadable": "^1.0.0",
+		"loadable-component": "^1.0.0",
 		"material-ui": "^0.20.2",
 		"mui-layout": "^1.2.9",
 		"react": "^16.7.0-alpha.2",
@@ -22,6 +28,7 @@
 		"react-charty": "^0.1.6",
 		"react-dom": "^16.7.0-alpha.2",
 		"react-hot-loader": "^4.13.0",
+		"react-jsdom": "^3.0.0",
 		"react-linechart": "^1.1.12",
 		"react-minimal-pie-chart": "^8.1.0",
 		"react-player": "^2.6.2",
@@ -31,5 +38,11 @@
 	"devDependencies": {
 		"cross-env": "5.x",
 		"razzle": "2.x"
+	},
+	"eslintConfig": {
+		"env": {
+			"browser": true,
+			"node": true
+		}
 	}
 }

@@ -8,7 +8,6 @@ import { red } from '@material-ui/core/colors'
 import baseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import { MiniDrawer } from './components/MiniDrawer';
 
-
 const getTheme = () => {
   let overwrites = {};
   return getMuiTheme(baseTheme, overwrites);
@@ -79,6 +78,15 @@ const theme = createMuiTheme({
     tonalOffset: 0.2,
   },
 });
+
+export const MainView = () => {
+  return (
+    <ThemeProvider theme={darkTheme} >
+      <CssBaseline />
+      <MiniDrawer />
+    </ThemeProvider>
+  )
+}
 
 export default class Main extends Component {
   constructor(properties) {
