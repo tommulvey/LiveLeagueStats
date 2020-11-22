@@ -258,5 +258,44 @@ def prettyPlayerStats(gameId="104174992730350841", secs=0):
             r.append({'playerId': p, 'kda':'--', 'gold': '--' })
         return jsonify(r)
 
+
+@app.route('/barGraphs/<gameId>/<secs>', methods=['GET'])
+def barChartByGameIdAndSecs(gameId="104174992730350841", secs=0):
+    # 104174992730350841 
+    mydb = myclient["gameData"]
+    mycol = mydb["window"]
+
+    # bar 1: total gold between teams
+    # bar 2: total kills
+    # bar 3: total towers
+    # bar 4: total dragons
+    # schea ret : [(blue, red), (....)]
+    res = mycol.find_one( {"gameId":str(gameId), "secs_passed" : {"$eq": int(secs)}} )
+    r = []
+    # for i in res:
+    #     a = ()
+    #     r.append({'x': int(i['secs']), 'y':float(100-float(i['red'])) })
+    try: 
+        # print(res)
+        # input()
+        blue_team = res['blueTeam']
+        red_team = res['redTeam']
+        print(blue_team)
+        
+        
+        # for p in players: #"{:.2f}".format
+        #     kda = "{:.2f}".format((int(p['kills'])+int(p['assists']))/int(p['deaths'])) if int(p['deaths']) is not 0 else "{:.2f}".format((int(p['kills'])+int(p['assists']))/(int(p['deaths'])+1))
+        #     r.append({'playerId':p['participantId'], 'kda':kda, 'gold': kFormatter(p['totalGoldEarned']) })
+
+        r.append((blue_team['totalGold'], red_team['totalGold']))
+        r.append((blue_team['totalKills'], red_team['totalKills']))
+        r.append((blue_team['towers'], red_team['towers']))
+        r.append((len(blue_team['dragons']), len(red_team['dragons'])))
+        return jsonify(r)
+    except:
+        print("excep")
+        r=[(0,0), (0,0), (0,0), (0,0)]
+        return jsonify(r)
+
 if __name__ == '__main__':
     app.run(debug=True)
