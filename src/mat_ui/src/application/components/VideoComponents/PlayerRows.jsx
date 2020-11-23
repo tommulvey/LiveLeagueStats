@@ -72,6 +72,7 @@ export const PlayerRows = ({ gameId, time} ) => {
   const [ data, setData ] = useState({})
   const [ playerInfo, setPlayerInfo ] = useState({})
   const [ playerPics, setPlayerPics ] = useState([])
+  const [teams, setTeams] = useState({'name':'--', 'logo': '--'},{'name':'--', 'logo': '--'})
 
   console.log('time is...', time)
   useEffect(() => {
@@ -136,14 +137,11 @@ export const PlayerRows = ({ gameId, time} ) => {
 
   }, [])
 
-  // we got 10 players, 5 rows
-  console.log('data is....', data)
-  console.log(data[9])
-  console.log(data[9])
   return (
     <div className="rows">
 
       <div className="top basePlayer" style={{width: "37.5vw"}}>
+        <div> <p> TEAM 1 VS TEAM 2 </p> </div>
         <div className="playerLeft">
           <div className="pcard" style={{display: 'inline'}}>
             <img 

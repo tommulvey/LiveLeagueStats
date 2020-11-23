@@ -9,5 +9,9 @@
 		, "react/no-direct-mutation-state": 0
 
 		, "no-useless-concat": 0
-	}
+	},
+	"env": {
+        "browser": true,
+        "node": true
+    }
 }

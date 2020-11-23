@@ -28,13 +28,31 @@ iframe {
 .line-chart {
   height: 10vh;
   width: 56vw;
-  margin-top: -20vh;
+  margin-top: -25vh;
 }
 
 .pie-chart {
   height: 40vh;
-  width: 40vw;
+  width: 40%;
   float: right;
+  margin-top: -5%;
+}
+
+.pies {
+  width: 100%
+}
+
+.e1 {
+  float: left;
+  /* width: 50% */
+}
+.e2 {
+  float: right;
+  /* width: 50%; */
+}
+.canvasjs-chart-container {
+  height: 300px;
+  width: 340px;
 }
 
 td {
@@ -57,7 +75,7 @@ td {
 }
 
 .basePlayer {
-  width: 37.5vw;
+  width: 37.5%;
   padding-left: 3%;
 }
 

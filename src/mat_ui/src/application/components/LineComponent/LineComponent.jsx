@@ -1,60 +1,84 @@
-import React, { Component, useState, useEffect } from 'react';
-import LineChart from 'react-linechart';
+import React, { lazy, useEffect, useState } from 'react'
+import PropTypes from 'prop-types';
+import loadable from '@loadable/component';
+const CanvasJSChart  = loadable(() => import('../../assets/canvasjs.react'))
 
 const getTime = (time) => {
     return (time).toFixed()-243+""
 }
 
 export const LineComponent = ({gameId, time}) => {
-  const [lineData, setLineData] = useState([]);
 
-  const data = [
-  {									
-    color: "steelblue", 
-    points: [{x: 1, y: 2}, {x: 3, y: 5}, {x: 7, y: -3}] 
-  }];
+  const [data, setData] = useState([
+    {x:0, y:0}
+  ]);
+  const id = '104174992730350841';
 
-//   useEffect(() => {
-//     // GET request using fetch inside useEffect React hook
-//     const id = '104174992730350841';
-//     fetch('http://127.0.0.1:5000/getLC/'+id+'/'+getTime(time))
-//       .then(async response => {
-//         const res = await response.json();
-//         // check for error response
-//         if (!response) {
-//             // get error message from body or default to response statusText
-//             console.error('errrrr')
-//         }
-//         // console.log('res is ', response)
-//         // console.log('data.', res)
-//         //setLineData(res)
-//       })
-//       .catch(error => {
-//           this.setState({ errorMessage: error.toString() });
-//           console.error('There was an error!', error);
-//       });
-//       // 37:57 end
-//       // 32:10 ded
-//       // empty dependency array means this effect will only run once (like componentDidMount in classes)
-//   }, [time]);
+  useEffect(() => {
+  // GET request using fetch inside useEffect React hook
+    fetch('http://127.0.0.1:5000/getLC/'+id+'/'+getTime(time))
+      .then(async response => {
+        const res = await response.json();
+        // check for error response
+        if (!response) {
+            // get error message from body or default to response statusText
+            console.error('errrrr')
+        }
+        // console.log('res is ', response)
+        const d = []
+        Object.entries(res).map((v) => d.push(v[1]))
+        // console.log('LC  data.', d)
+        setData(d)
+      })
+      .catch(error => {
+          this.setState({ errorMessage: error.toString() });
+          console.error('There was an error!', error);
+      });
+    // 37:57 end
+    // 32:10 ded
+    // empty dependency array means this effect will only run once (like componentDidMount in classes)
+  }, [time]);
+
+  const options = {
+      animationEnabled: true,
+      theme: "dark2",
+      title:{
+          text: "Live Win %"
+      },
+      toolTip: {
+          shared: true
+      },
+      legend:{
+          cursor: "pointer"
+      },
+      axisX:{
+        title:'Seconds Elapsed',
+        includeZero: true,
+        crosshair: {
+          enabled: true
+        }
+      },
+      axisY: {
+        title: "Win %",
+        includeZero: true,
+        crosshair: {
+          enabled: true
+        }
+      },
+      data: [{
+          type: "line",
+          name: "Blue Team",
+          showInLegend: "true",
+          // xValueFormatString: "Stat, MMM",
+          // yValueFormatString: "$#,##0",
+          dataPoints: data
+      }]
+  }
 
   return (
-    <div>
-      {/* <div className="lc">
-          <LineChart 
-            width={600}
-            height={400}
-            data={[
-                color: 'steelblue',
-                points: {data}
-            ]}
-            yLabel={"Seconds Elapsed"}
-            yMin={0}
-            yMax={100}
-            xMin={0}
-          />
-      </div>				 */}
-      <h2> chart here </h2>
-    </div>
-    );
+      <div>
+        <CanvasJSChart options = {options} />
+      </div>
+  )
+
 }

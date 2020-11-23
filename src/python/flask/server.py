@@ -12,7 +12,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-myclient = myclient = pymongo.MongoClient("mongodb+srv://admin:kkCjl3lr46GHOAOU@cluster0-njbww.mongodb.net/gameData?authSource=admin&replicaSet=Cluster0-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass%20Community&retryWrites=true&ssl=true")
+myclient = myclient = ""
 mydb = myclient["gameData"]
 
 def parse_json(data):
@@ -160,20 +160,20 @@ def pieCharts(gameId="104174992730350841", secs=0):
 #     { title: 'Two', value: 15, color: '#C13C37' },
 #     { title: 'Three', value: 20, color: '#6A2135' },
 #   ]}
-    T1_DMG = []
-    T2_DMG = []
-    T1_GLD = []
-    T2_GLD = []
-    T1_KLS = [] #kills 
-    T2_KLS = []
-    T1_DTS = [] #deaths 
-    T2_DTS = []
-    T1_CS = [] #creepScore
-    T2_CS = []
-    T1_WP = []
-    T2_WP = [] #wardsPlaced 
-    T1_WD = [] #wardsDestroyed
-    T2_WD = []
+    T1_DMG = []#1
+    T2_DMG = []#2
+    T1_GLD = []#3
+    T2_GLD = []#4
+    T1_KLS = [] #kills #5
+    T2_KLS = []#6
+    T1_DTS = [] #deaths #7
+    T2_DTS = []#8
+    T1_CS = [] #creepScore #9
+    T2_CS = []#10
+    T1_WP = []#11
+    T2_WP = [] #wardsPlaced #12
+    T1_WD = [] #wardsDestroyed #13
+    T2_WD = [] #14
     yocolors = {
         0: "#003366",
         1: "#3366cc",
@@ -191,21 +191,21 @@ def pieCharts(gameId="104174992730350841", secs=0):
     r = lambda: random.randint(0,255)
     for p in players:
         if i < 5: 
-            T1_DMG.append({'title':p['participantId'], 'value':p['championDamageShare'], 'color':yocolors[i] })
-            T1_GLD.append({'title':p['participantId'], 'value':p['totalGoldEarned'], 'color':yocolors[i] })
-            T1_KLS.append({'title':p['participantId'], 'value':p['kills'], 'color':yocolors[i] })
-            T1_CS.append({'title':p['participantId'], 'value':p['creepScore'], 'color':yocolors[i] })
-            T1_DTS.append({'title':p['participantId'], 'value':p['deaths'], 'color':yocolors[i] })
-            T1_WP.append({'title':p['participantId'], 'value':p['wardsPlaced'], 'color':yocolors[i] })
-            T1_WD.append({'title':p['participantId'], 'value':p['wardsDestroyed'], 'color':yocolors[i] })
+            T1_DMG.append({'participantId':p['participantId'], 'y':p['championDamageShare'], 'color':yocolors[i] })
+            T1_GLD.append({'participantId':p['participantId'], 'y':p['totalGoldEarned'], 'color':yocolors[i] })
+            T1_KLS.append({'participantId':p['participantId'], 'y':p['kills'], 'color':yocolors[i] })
+            T1_CS.append({'participantId':p['participantId'], 'y':p['creepScore'], 'color':yocolors[i] })
+            T1_DTS.append({'participantId':p['participantId'], 'y':p['deaths'], 'color':yocolors[i] })
+            T1_WP.append({'participantId':p['participantId'], 'y':p['wardsPlaced'], 'color':yocolors[i] })
+            T1_WD.append({'participantId':p['participantId'], 'y':p['wardsDestroyed'], 'color':yocolors[i] })
         else:
-            T2_DMG.append({'title':p['participantId'], 'value':p['championDamageShare'], 'color':yocolors[i] })
-            T2_GLD.append({'title':p['participantId'], 'value':p['totalGoldEarned'], 'color':yocolors[i] })
-            T2_KLS.append({'title':p['participantId'], 'value':p['kills'], 'color':yocolors[i] })
-            T2_CS.append({'title':p['participantId'], 'value':p['creepScore'], 'color':yocolors[i] })
-            T2_DTS.append({'title':p['participantId'], 'value':p['deaths'], 'color':yocolors[i] })
-            T2_WP.append({'title':p['participantId'], 'value':p['wardsPlaced'], 'color':yocolors[i] })
-            T2_WD.append({'title':p['participantId'], 'value':p['wardsDestroyed'], 'color':yocolors[i] })
+            T2_DMG.append({'participantId':p['participantId'], 'y':p['championDamageShare'], 'color':yocolors[i] })
+            T2_GLD.append({'participantId':p['participantId'], 'y':p['totalGoldEarned'], 'color':yocolors[i] })
+            T2_KLS.append({'participantId':p['participantId'], 'y':p['kills'], 'color':yocolors[i] })
+            T2_CS.append({'participantId':p['participantId'], 'y':p['creepScore'], 'color':yocolors[i] })
+            T2_DTS.append({'participantId':p['participantId'], 'y':p['deaths'], 'color':yocolors[i] })
+            T2_WP.append({'participantId':p['participantId'], 'y':p['wardsPlaced'], 'color':yocolors[i] })
+            T2_WD.append({'participantId':p['participantId'], 'y':p['wardsDestroyed'], 'color':yocolors[i] })
         i = i + 1
 
     r = [T1_DMG, T2_DMG,T1_GLD, T2_GLD,T1_KLS,T2_KLS,T1_DTS,T2_DTS,T1_CS,T2_CS,T1_WP,T2_WP,T1_WD,T2_WD]
@@ -256,6 +256,55 @@ def prettyPlayerStats(gameId="104174992730350841", secs=0):
         r=[]
         for p in range(1,11):
             r.append({'playerId': p, 'kda':'--', 'gold': '--' })
+        return jsonify(r)
+
+
+@app.route('/barGraphs/<gameId>/<secs>', methods=['GET'])
+def barChartByGameIdAndSecs(gameId="104174992730350841", secs=0):
+    # 104174992730350841 
+    mydb = myclient["gameData"]
+    mycol = mydb["window"]
+
+    # bar 1: total gold between teams
+    # bar 2: total kills
+    # bar 3: total towers
+    # bar 4: total dragons
+    # schea ret : [(blue, red), (....)]
+    res = mycol.find_one( {"gameId":str(gameId), "secs_passed" : {"$eq": int(secs)}} )
+    r = []
+    # for i in res:
+    #     a = ()
+    #     r.append({'x': int(i['secs']), 'y':float(100-float(i['red'])) })
+    try: 
+        # print(res)
+        # input()
+        r = {}
+        blue_team = res['blueTeam']
+        red_team = res['redTeam']
+        # print(blue_team)
+        
+        
+        # for p in players: #"{:.2f}".format
+        #     kda = "{:.2f}".format((int(p['kills'])+int(p['assists']))/int(p['deaths'])) if int(p['deaths']) is not 0 else "{:.2f}".format((int(p['kills'])+int(p['assists']))/(int(p['deaths'])+1))
+        #     r.append({'playerId':p['participantId'], 'kda':kda, 'gold': kFormatter(p['totalGoldEarned']) })
+
+        # r.append((blue_team['totalGold'], red_team['totalGold']))
+        # r.append((blue_team['totalKills'], red_team['totalKills']))
+        # r.append((blue_team['towers'], red_team['towers']))
+        # r.append((len(blue_team['dragons']), len(red_team['dragons'])))
+
+        t_gold = blue_team['totalGold'] + red_team['totalGold']; t_kills = 0; t_towers = 0; t_dragons = 0
+        bg = 0; rg =0;
+        r['blue'] = [blue_team['totalGold'], blue_team['totalKills'], blue_team['towers'], len(blue_team['dragons'])]
+        r['red'] = [red_team['totalGold'], red_team['totalKills'], red_team['towers'], len(red_team['dragons'])]
+
+        return jsonify(r)
+    except:
+        print("except")
+        r={
+            'red':[0,0,0,0],
+            'blue' :[0,0,0,0]
+        }
         return jsonify(r)
 
 if __name__ == '__main__':
