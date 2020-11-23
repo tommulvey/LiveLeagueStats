@@ -12,7 +12,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-myclient = myclient = ""
+myclient = myclient = pymongo.MongoClient("mongodb+srv://admin:kkCjl3lr46GHOAOU@cluster0-njbww.mongodb.net/gameData?authSource=admin&replicaSet=Cluster0-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass%20Community&retryWrites=true&ssl=true")
 mydb = myclient["gameData"]
 
 def parse_json(data):
@@ -173,7 +173,6 @@ def pieCharts(gameId="104174992730350841", secs=0):
     T1_WP = []#11
     T2_WP = [] #wardsPlaced #12
     T1_WD = [] #wardsDestroyed #13
-    T2_WD = [] #14
     yocolors = {
         0: "#003366",
         1: "#3366cc",
