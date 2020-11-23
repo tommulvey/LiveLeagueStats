@@ -1,7 +1,8 @@
 import cv2
 import numpy as np
+import os
 
-from BW_convert import binary_convert
+path=os.getcwd()
 
 
 def center(image,name):
@@ -22,7 +23,7 @@ def center(image,name):
     T = np.float32([[1, 0, offsetX], [0, 1, offsetY]])
     centered_image = cv2.warpAffine(image, T, (width, height))
 
-    cv2.imwrite('/Users/alex/Desktop/LLS/src/mat_ui/api/images_written/'+name,centered_image)
+    cv2.imwrite(path+'/images_written/'+name,centered_image)
 
     return centered_image
 
