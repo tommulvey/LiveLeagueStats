@@ -1,6 +1,7 @@
 {
 	"scripts": {
 		"start": "razzle build && cross-env NODE_ENV=production node build/server.js",
+		"start-api": "cd API && python3 IP.py",
 		"dev": "razzle start",
 		"static": "cross-env RAZZLE_STATIC=true razzle build && cross-env NODE_ENV=production node build/server.js"
 	},

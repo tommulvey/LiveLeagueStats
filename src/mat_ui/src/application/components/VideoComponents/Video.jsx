@@ -1,4 +1,7 @@
 import React from "react"
+import '../../styles/Video.css'
+
+import React from "react"
 import 'react-player'
 import ReactPlayer from "react-player"
 import '../../styles/Video.css'
@@ -108,6 +111,23 @@ export default class Video extends React.Component {
     this.setState(() => ( { elapsed: state.playedSeconds }))
     this.props.setTime(parseFloat(state.playedSeconds))
     console.log('el: ', fmtMSS(this.state.elapsed))
+
+    if (this.state.playing){
+      fetch('http://localhost:5000/time' , {
+        method: 'POST',
+        headers: {
+          'Accept': 'text/plain',
+          'Content-Type': 'text/plain'
+        },
+        body: fmtMSS(this.state.elapsed)
+      }).then(function(response) {
+        return response.json();
+      }).then(response => {
+        this.setState({ time: response });
+        console.log(this.state.time)
+      });
+    }
+
     // console.log('elapsed = ', fmtMSS(state.playedSeconds))
     // console.log('elapsed: ', fmtMSS(this.state.elapsed))
     // We only want to update time slider if we are not currently seeking
@@ -175,4 +195,5 @@ export default class Video extends React.Component {
 
 /* ex iframe vid
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bXFTmt-Pb2M?start=257" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 */

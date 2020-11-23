@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+
 import PropTypes from 'prop-types';
 import { PlayerStats } from "./VideoComponents/PlayerStats"
 
@@ -17,7 +18,8 @@ export const VideoPage = (gameId) => {
   return (
     <div>
       <div className="vid-page-wit-stats">
-        {/* <TimeIntegration time={time}/> */}
+        <TimeIntegration time={time}/>
+
         <div className="left-vid">
           <Video setTime={setTime}/>
         </div>
@@ -36,6 +38,7 @@ export const VideoPage = (gameId) => {
         <BarCharts gameId={gameId} time={time} />
       </div> */}
         
+
     </div>
   )
   
