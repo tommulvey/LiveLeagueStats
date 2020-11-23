@@ -1,27 +1,5 @@
-<<<<<<< Updated upstream
-import React from "react"
-import PlayerStats from "./VideoComponents/PlayerStats"
-import './VideoComponents/Video'
-import Video from "./VideoComponents/Video"
-/* static imports */
-import '../styles/Video.css'
+import React, { useEffect, useState } from 'react'
 
-export default class VideoPage extends React.Component {
-  render() {
-    return (
-      <div class="vid-page-wit-stats">
-        <div class="left-vid">
-          <Video />
-        </div>
-        <div class="right-stats-players">
-          <PlayerStats />
-        </div>
-      </div>
-    )
-  }
-}
-=======
-import React, { useState } from 'react'
 import PropTypes from 'prop-types';
 import { PlayerStats } from "./VideoComponents/PlayerStats"
 
@@ -41,6 +19,7 @@ export const VideoPage = (gameId) => {
     <div>
       <div className="vid-page-wit-stats">
         <TimeIntegration time={time}/>
+
         <div className="left-vid">
           <Video setTime={setTime}/>
         </div>
@@ -54,11 +33,12 @@ export const VideoPage = (gameId) => {
       </div>
       <div className="pie-chart">
         <PieChartComponents gameId={gameId} time={time} />
-      <div className="barCharts" >
+      </div>
+      {/* <div className="barCharts" >
         <BarCharts gameId={gameId} time={time} />
-      </div>
+      </div> */}
         
-      </div>
+
     </div>
   )
   
@@ -71,4 +51,3 @@ export const VideoPage = (gameId) => {
 
 
 export default VideoPage
->>>>>>> Stashed changes

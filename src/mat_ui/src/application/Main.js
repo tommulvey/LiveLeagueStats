@@ -1,20 +1,12 @@
 // In this file, we create a React component which contains components provided by Material-UI.
 import React, {Component} from 'react'
 import styled, {injectGlobal} from 'styled-components'
-import { useTheme, createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button'
 import { red } from '@material-ui/core/colors'
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import baseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import * as Colors from 'material-ui/styles/colors';
-import { fade } from 'material-ui/utils/colorManipulator'
-import './styles/Main.css'
-import Video from './components/VideoPage'
-import HeaderMain from './components/HeaderMain'
-import MiniDrawer from './components/MiniDrawer';
+import { MiniDrawer } from './components/MiniDrawer';
 
 const getTheme = () => {
   let overwrites = {};
@@ -87,6 +79,15 @@ const theme = createMuiTheme({
   },
 });
 
+export const MainView = () => {
+  return (
+    <ThemeProvider theme={darkTheme} >
+      <CssBaseline />
+      <MiniDrawer />
+    </ThemeProvider>
+  )
+}
+
 export default class Main extends Component {
   constructor(properties) {
     super(properties)
@@ -96,7 +97,7 @@ export default class Main extends Component {
     this.state = {
       open: false
 	  }
-	
+
   }
 
   handleRequestClose = () => this.setState({

@@ -6,6 +6,7 @@ import cv2
 import pafy
 import math
 
+
 from keras.models import Sequential
 from keras.layers import Dense, Conv2D, Flatten
 
@@ -181,6 +182,7 @@ def process_video():
         interval=count%(framerate*time_interval)
         if cv2.waitKey(1) == 27:
             break
+
         if success == False:
             break
         if (interval==0):
@@ -289,6 +291,7 @@ def process_video():
         count+=1
         frames_read += 1
         key = cv2.waitKey(30)
+
         if key == ord("e"):
             break
     ###########################################

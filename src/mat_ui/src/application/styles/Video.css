@@ -19,11 +19,45 @@ iframe {
   display: inline-block;
   position: absolute;
   right: 0;
-  width: 37.5vw;
+  /* width: 33.5vw; */
   height: 65vh;
   /* background: black; */
-  padding-right: 2vw;
-  padding-left: 2vw;
+  padding-left: 1vw;
+}
+
+.line-chart {
+  height: 10vh;
+  width: 56vw;
+  margin-top: -25vh;
+}
+
+.pie-chart {
+  height: 40vh;
+  width: 40%;
+  float: right;
+  margin-top: -5%;
+}
+
+.pies {
+  width: 100%
+}
+
+.e1 {
+  float: left;
+  /* width: 50% */
+}
+.e2 {
+  float: right;
+  /* width: 50%; */
+}
+.canvasjs-chart-container {
+  height: 300px;
+  width: 340px;
+}
+
+td {
+  height: 20em;
+  width: 20em;
 }
 
 .player-rows {
@@ -37,6 +71,49 @@ iframe {
 .rows {
   height: 13.5vh;
   padding: inherit;
+  font-size: 1.5em;
+}
+
+.basePlayer {
+  width: 37.5%;
+  padding-left: 3%;
+}
+
+.playerLeft {
+  /* color: white;
+  background-color: DodgerBlue; */
+  float: left;
+  font-family: Arial;
+  width: 42%;
+}
+
+.playerRight {
+  /* color: white;
+  background-color: DodgerBlue; */
+  float: right;
+  font-family: Arial;
+  width: 47%;
+  padding-left: .5em;
+}
+
+.pcard {
+  width:20%;
+  text-align:center;
+  display:block;
+  background-color: transparent;
+  border: 1px solid transparent;
+  margin-right: 10px;
+  margin-bottom: 1px;
+  float:left;
+  font-size: .75em;
+}
+
+.rightImg {
+  float: right;
+}
+
+.leftImg {
+  float: left;
 }
 
 .playername {
@@ -49,22 +126,36 @@ iframe {
   margin-left: -.8em;
 }
 
+.roleLogo {
+  margin-right: 1em;
+}
+
 .top {
   color: #c158dc;
+  display: flow-root;
+  height: 13vh;
 }
 
 .jg {
   color: #8e24aa;
+  display: flow-root;
+  height: 13vh;
 }
 
 .mid {
   color: #9b4dcb;
+  display: flow-root;
+  height: 13vh;
 }
 
 .bot {
   color: #5c007a;
+  display: flow-root;
+  height: 13vh;
 }
 
 .sup {
   color: #4a0072;
+  display: flow-root;
+  height: 13vh;
 }

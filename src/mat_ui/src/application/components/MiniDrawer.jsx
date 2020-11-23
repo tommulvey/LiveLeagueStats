@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -19,6 +20,8 @@ import EqualizerIcon from '@material-ui/icons/Equalizer';
 import HomeIcon from '@material-ui/icons/Home';
 import VideoPage from './VideoPage';
 import DateRangeIcon from '@material-ui/icons/DateRange';
+import Schedule from './Schedule/Schedule';
+import StatsQuery from './StatsQueryPage/StatsQuery';
 
 const drawerWidth = 240;
 
@@ -93,10 +96,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MiniDrawer() {
+
+export const MiniDrawer = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [view, setView] = React.useState(1);
+  const [gameId, setGameId] = useState('104174992730350841'); //controls what user sees game wise
+  /*
+    1: main page
+    2: sched
+    3: stats
+  */
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -105,6 +116,15 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const handleMenuSelect = (event, index) => {
+    if (index > 3 || index <0 ){
+      console.log('do nothing')
+    }
+
+    setView(index+1)
+    console.log('yo index is ', index+1)
+  }
 
   return (
     <div className={classes.root}>
@@ -153,7 +173,7 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {['Main','Schedule', 'Stats'].map((text, index) => (
-            <ListItem button key={text}>
+            <ListItem button key={text} onClick={(event) => handleMenuSelect(event, index)} >
               <ListItemIcon>{ MENU[text] }</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
@@ -166,9 +186,18 @@ export default function MiniDrawer() {
       <main className={classes.content}>
         <div className={classes.toolbar} />
 
-        <VideoPage />
-      
+        { 
+          view===1 && <VideoPage gameId={gameId} />
+          || view===2 && <Schedule setGameId={setGameId} />
+          || view===3 && <StatsQuery />
+        }
+
       </main>
     </div>
   );
 }
+
+// MiniDrawer.propTypes = {
+//   setGameId: PropTypes.function
+// };
+
