@@ -6,7 +6,7 @@ import numpy as np
 import cv2
 import pafy
 import math
-import threading
+
 
 from keras.models import Sequential
 from keras.layers import Dense, Conv2D, Flatten
@@ -14,11 +14,9 @@ from keras.layers import Dense, Conv2D, Flatten
 from keras.utils import to_categorical
 import numpy as np
 from BW_convert import binary_convert_colon,binary_convert
-#from cutting import cropping1,cropping2,cropping3,cropping4
 from keras.models import load_model
 from center import center
 from convert import convert
-from check_digit import check_digit
 from convert_time_from_fe import convert2
 
 path = os.getcwd()
