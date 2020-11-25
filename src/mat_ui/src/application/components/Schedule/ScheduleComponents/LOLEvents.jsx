@@ -5,10 +5,11 @@ import mockMatchData from './data'
 
 function videoSelected(id){
     console.log("User selected match id:",id+".","Redirecting..."); //When match button is clicked, prints message including match id into browser console.
+
 }
 
 
-const LOLEvents=()=>{
+const LOLEvents=({setView})=>{
     const [matchData, setMatchData]=useState(mockMatchData);
     const getMatchData=(eventId)=>{
         const {data}=matchData;
@@ -64,7 +65,8 @@ const LOLEvents=()=>{
                 const matchDate=startTime.slice(0,10)
                 const matchStart=startTime.slice(11,16) 
                 return (
-                    <Button keys={id} variant="outlined" onClick={videoSelected.bind(videoSelected,id)}>
+                    // <Button keys={id} variant="outlined" onClick={videoSelected.bind(videoSelected,id)}></Button>
+                    <Button keys={id} variant="outlined" onClick={(id) => {setView(1)}}>
                     
                     <Grid container item xs={12} spacing={2}>
                                 <Grid item xs={1}>

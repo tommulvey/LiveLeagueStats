@@ -1,12 +1,21 @@
 import React from "react"
 import '../../styles/Video.css'
-
-import React from "react"
 import 'react-player'
 import ReactPlayer from "react-player"
 import '../../styles/Video.css'
 
 export const fmtMSS = (s) => { return(s-(s%=60))/60+(9<s?':':':0')+s }
+
+function isInProgress (ts) {
+  console.log('val is: ', ts)
+  const d = Date.parse('01/01/2011 10:20:45')
+  if (ts < '4:03') { return false}
+  else if ( (Date.parse('01/01/2011 10:20:45') > Date.parse('01/01/2011 10:20:45'+' 4:03:00')) && (ts <= '22:45')) {return true} // pause
+  else if ( (ts > '22:45') && (ts <= '23:13')) {return false} // post pasue
+  else if ( (ts > fmtMSS('23:13')) && (fmtMSS(ts) <= fmtMSS('37:59'))) {return true} // post pasue
+  else if (fmtMSS(ts) > '37:59') {return false}
+  else {return true}
+}
 export default class Video extends React.Component {
   state = {
     url: 'https://www.youtube.com/watch?v=bXFTmt-Pb2M?', // https://www.youtube.com/watch?v=bXFTmt-Pb2M?start=257
@@ -113,19 +122,21 @@ export default class Video extends React.Component {
     console.log('el: ', fmtMSS(this.state.elapsed))
 
     if (this.state.playing){
-      fetch('http://localhost:5000/time' , {
-        method: 'POST',
-        headers: {
-          'Accept': 'text/plain',
-          'Content-Type': 'text/plain'
-        },
-        body: fmtMSS(this.state.elapsed)
-      }).then(function(response) {
-        return response.json();
-      }).then(response => {
-        this.setState({ time: response });
-        console.log(this.state.time)
-      });
+      // fetch('http://localhost:5000/time' , {
+      //   method: 'POST',
+      //   headers: {
+      //     'Accept': 'text/plain',
+      //     'Content-Type': 'text/plain'
+      //   },
+      //   body: fmtMSS(this.state.elapsed)
+      // }).then(function(response) {
+      //   return response.json();
+      // }).then(response => {
+      //   this.setState({ time: response });
+      //   console.log('we are calculting time to be...', this.state.time)
+      // });
+      console.log('we are calculting time to be...', parseFloat(state.playedSeconds))
+      console.log('in_progress?', isInProgress(fmtMSS(this.state.elapsed)))
     }
 
     // console.log('elapsed = ', fmtMSS(state.playedSeconds))

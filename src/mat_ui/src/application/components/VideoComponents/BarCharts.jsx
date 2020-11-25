@@ -20,7 +20,7 @@ export const BarCharts = ({gameId, time}) => {
   });
   const id = '104174992730350841';
 
-  console.log('time is...', time)
+  // console.log('time is...', time)
   useEffect(() => {
     // GET request using fetch inside useEffect React hook
     fetch('http://127.0.0.1:5000/barGraphs/'+id+'/'+getTime(time))
@@ -72,15 +72,16 @@ export const BarCharts = ({gameId, time}) => {
         },
         {
             type: "stackedBar",
-            name: "Red Team",
+            name: "Purple Team",
+            color: '#932CA8',
             showInLegend: "true",
             // xValueFormatString: "DD, MMM",
             // yValueFormatString: "$#,##0",
             dataPoints: [
-                { y: data['red'][0], label: 'gold' },
-                { y: data['red'][1], label: 'kills' },
-                { y: data['red'][2], label: 'towers' },
-                { y: data['red'][3], label: 'dragons' }
+                { y: data['red'][0], label: 'gold', 'color': '#932CA8' },
+                { y: data['red'][1], label: 'kills', 'color': '#932CA8' },
+                { y: data['red'][2], label: 'towers', 'color': '#932CA8' },
+                { y: data['red'][3], label: 'dragons', 'color': '#932CA8' }
             ]
         }]
     }

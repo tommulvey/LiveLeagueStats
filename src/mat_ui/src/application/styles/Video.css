@@ -55,6 +55,21 @@ iframe {
   width: 340px;
 }
 
+
+.canvasjs-react-chart-container-3 {
+  width: 100%;
+  position: relative;
+  height: 400px;
+  margin-top: 20%;
+}
+
+#canvasjs-react-chart-container-3 {
+  width: 100%;
+  position: relative;
+  height: 400px;
+  margin-top: 20%;
+}
+
 td {
   height: 20em;
   width: 20em;

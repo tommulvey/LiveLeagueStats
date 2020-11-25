@@ -18,8 +18,6 @@ export const VideoPage = (gameId) => {
   return (
     <div>
       <div className="vid-page-wit-stats">
-        <TimeIntegration time={time}/>
-
         <div className="left-vid">
           <Video setTime={setTime}/>
         </div>
@@ -34,11 +32,9 @@ export const VideoPage = (gameId) => {
       <div className="pie-chart">
         <PieChartComponents gameId={gameId} time={time} />
       </div>
-      {/* <div className="barCharts" >
+      <div className="barCharts" >
         <BarCharts gameId={gameId} time={time} />
-      </div> */}
-        
-
+      </div>
     </div>
   )
   

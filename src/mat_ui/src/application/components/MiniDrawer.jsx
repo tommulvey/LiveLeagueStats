@@ -101,7 +101,7 @@ export const MiniDrawer = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [view, setView] = React.useState(1);
+  const [view, setView] = React.useState(2);
   const [gameId, setGameId] = useState('104174992730350841'); //controls what user sees game wise
   /*
     1: main page
@@ -123,7 +123,7 @@ export const MiniDrawer = () => {
     }
 
     setView(index+1)
-    console.log('yo index is ', index+1)
+    // console.log('yo index is ', index+1)
   }
 
   return (
@@ -188,7 +188,7 @@ export const MiniDrawer = () => {
 
         { 
           view===1 && <VideoPage gameId={gameId} />
-          || view===2 && <Schedule setGameId={setGameId} />
+          || view===2 && <Schedule setView={setView} />
           || view===3 && <StatsQuery />
         }
 

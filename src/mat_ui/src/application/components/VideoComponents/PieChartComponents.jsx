@@ -118,7 +118,7 @@ export function PieChartComponents({gameId, time}) {
         // check for error response
         if (!response) {
             // get error message from body or default to response statusText
-            console.error('errrrr')
+            //console.error('errrrr')
         }
         // console.log('res is ', response)
         // console.log('data.', res)
@@ -126,7 +126,7 @@ export function PieChartComponents({gameId, time}) {
       })
       .catch(error => {
           this.setState({ errorMessage: error.toString() });
-          console.error('There was an error!', error);
+          //console.error('There was an error!', error);
       });
       // 37:57 end
       // 32:10 ded
@@ -139,7 +139,7 @@ export function PieChartComponents({gameId, time}) {
       .then(async response => {
         const res = await response.json();
         if (!response) {
-            console.error('errrrr participants')
+            //console.error('errrrr participants')
         }
         // console.log('data.', res)
         // setParticipants(res.participants)
@@ -160,7 +160,7 @@ export function PieChartComponents({gameId, time}) {
       })
       .catch(error => {
           this.setState({ errorMessage: error.toString() });
-          console.error('There was an error!', error);
+          //console.error('There was an error!', error);
           setParticipants('crap')
       });
   }, []);
