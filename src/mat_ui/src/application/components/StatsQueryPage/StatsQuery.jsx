@@ -12,7 +12,7 @@ export const StatsQuery = () => {
   return (
       view===1 && <RegionView setView={setView} setRegion={setRegion} />
       || view===2 && <TeamsPerRegion setView={setView} setTeam={setTeam} region={region} />
-      || view===3 && <RegionView team={team} />
+      || view===3 && <PlayersPerTeam team={team} />
   )
   
 }
