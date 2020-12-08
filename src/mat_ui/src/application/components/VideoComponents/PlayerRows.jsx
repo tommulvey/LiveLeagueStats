@@ -8,6 +8,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
+import Tooltip from "@material-ui/core/Tooltip";
 import Typography from '@material-ui/core/Typography';
 // import { purple500, purple600, purple700, 
 //   purple800, purple900} from '@material-ui/core/colors'
@@ -144,6 +145,10 @@ export const PlayerRows = ({ gameId, time} ) => {
         <div> <p> FLYQUEST VS TEAM SOLO MID </p> </div>
         <div className="playerLeft">
           <div className="pcard" style={{display: 'inline'}}>
+          <Tooltip
+            title={<h3 style={{ color: "lightblue", fontSize: '2.25em' }}>Solo</h3>}
+            placement="top"
+          >
             <img 
               src={icons[0]}
               width={"82px"}
@@ -151,43 +156,67 @@ export const PlayerRows = ({ gameId, time} ) => {
               alt="Top T1"
               id="leftImg"
             />
-            <p> Solo </p>
+          </Tooltip>
           </div>
           
-          <MonetizationOn colorPrimary="#FFD700" size="1.5em"/>
+          <Tooltip
+            title={<h3 style={{ color: "lightblue", fontSize: '2.25em' }}>Gold Earned</h3>}
+            placement="top"
+          ><MonetizationOn colorPrimary="#FFD700" size="1.5em"/></Tooltip>
           <p style={{display: 'inline', padding:'.5em', color: '#FFD700'}} > { data[0] ? data[0].gold : '--' } </p>
-          <img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" />
+          <Tooltip
+            title={<h3 style={{ color: "lightblue", fontSize: '2.25em' }}>K/D/A</h3>}
+            placement="top"
+          ><img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" /></Tooltip>
           <p style={{display: 'inline', padding:'.5em', color: '#ffdad0'}} > { data[0] ? data[0].kda : '--'} </p>
         </div>
-        <img src={baseUrl+"/top.svg"} height={"40vh"} width={"6%"} alt="top" id="roleLogo" />
+        <Tooltip
+            title={<h3 style={{ color: "lightblue", fontSize: '2.25em' }}>Top Lane</h3>}
+            placement="top"
+          >
+        <img src={baseUrl+"/top.svg"} height={"40vh"} width={"6%"} alt="top" id="roleLogo" /></Tooltip>
         <div className="playerRight">
           <p style={{display: 'inline', padding:'.5em', color: '#ffdad0'}} > { data[5] ? data[5].kda : '--'} </p>
-          <img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" />
+          <Tooltip
+            title={<h3 style={{ color: "lightblue", fontSize: '2.25em' }}>K/D/A</h3>}
+            placement="top"
+          ><img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" /></Tooltip>
           <p style={{display: 'inline', padding:'.5em', color: '#FFD700'}} > { data[5] ? data[5].gold : '--'} </p>
-          <MonetizationOn colorPrimary="#FFD700" size="1.5em"/>
-          <img 
+          <Tooltip
+            title={<h3 style={{ color: "lightblue", fontSize: '2.25em' }}>Gold Earned</h3>}
+            placement="top"
+          ><MonetizationOn colorPrimary="#FFD700" size="1.5em"/></Tooltip>
+          <Tooltip
+            title={<h3 style={{ color: "lightblue", fontSize: '2.25em' }}>Broken Blade</h3>}
+            placement="top"
+          ><img 
             src={icons[5]}
             width={"82px"}
             height={"65px"}
             alt="JG T2"
             id="rightImg"
-          />
+          /></Tooltip>
         </div>
       </div>
 
       <div className="jg basePlayer" style={{width: "37.5vw"}}>
         <div className="playerLeft">
         <div className="pcard" style={{display: 'inline'}}>
-            <img 
+        <Tooltip
+            title={<h3 style={{ color: "lightblue", fontSize: '2.25em' }}>Santorin</h3>}
+            placement="top"
+          ><img 
               src={icons[1]}
               width={"82px"}
               height={"65px"}
               alt="Top T2"
               id="leftImg"
-            />
-            <p> Santorin </p>
+            /></Tooltip>
           </div>
-          <MonetizationOn colorPrimary="#FFD700" size="1.5em"/>
+          <Tooltip
+            title={<h3 style={{ color: "lightblue", fontSize: '2.25em' }}>Gold Earned</h3>}
+            placement="top"
+          ><MonetizationOn colorPrimary="#FFD700" size="1.5em"/></Tooltip>
           <p style={{display: 'inline', padding:'.5em', color: '#FFD700'}} > { data[1] ? data[1].gold : '--' } </p>
           <img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" />
           <p style={{display: 'inline', padding:'.5em', color: '#ffdad0'}} > { data[1] ? data[1].kda : '--'} </p>
@@ -197,7 +226,10 @@ export const PlayerRows = ({ gameId, time} ) => {
           <p style={{display: 'inline', padding:'.5em', color: '#ffdad0'}} > { data[6] ? data[6].kda : '--'} </p>
           <img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" />
           <p style={{display: 'inline', padding:'.5em', color: '#FFD700'}} > { data[6] ? data[6].gold : '--'} </p>
-          <MonetizationOn colorPrimary="#FFD700" size="1.5em"/>
+          <Tooltip
+            title={<h3 style={{ color: "lightblue", fontSize: '2.25em' }}>Gold Earned</h3>}
+            placement="top"
+          ><MonetizationOn colorPrimary="#FFD700" size="1.5em"/></Tooltip>
           <img 
             src={icons[6]}
             width={"82px"}
@@ -217,7 +249,10 @@ export const PlayerRows = ({ gameId, time} ) => {
             alt="MID T1"
             id="leftImg"
           />
-          <MonetizationOn colorPrimary="#FFD700" size="1.5em"/>
+          <Tooltip
+            title={<h3 style={{ color: "lightblue", fontSize: '2.25em' }}>Gold Earned</h3>}
+            placement="top"
+          ><MonetizationOn colorPrimary="#FFD700" size="1.5em"/></Tooltip>
           <p style={{display: 'inline', padding:'.5em', color: '#FFD700'}} > { data[2] ? data[2].gold : '--' } </p>
           <img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" />
           <p style={{display: 'inline', padding:'.5em', color: '#ffdad0'}} > { data[2] ? data[2].kda : '--'} </p>
@@ -227,7 +262,10 @@ export const PlayerRows = ({ gameId, time} ) => {
           <p style={{display: 'inline', padding:'.5em', color: '#ffdad0'}} > { data[7] ? data[7].kda : '--'} </p>
           <img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" />
           <p style={{display: 'inline', padding:'.5em', color: '#FFD700'}} > { data[7] ? data[7].gold : '--'} </p>
-          <MonetizationOn colorPrimary="#FFD700" size="1.5em"/>
+          <Tooltip
+            title={<h3 style={{ color: "lightblue", fontSize: '2.25em' }}>Gold Earned</h3>}
+            placement="top"
+          ><MonetizationOn colorPrimary="#FFD700" size="1.5em"/></Tooltip>
           <img 
             src={icons[7]}
             width={"82px"}
@@ -247,7 +285,10 @@ export const PlayerRows = ({ gameId, time} ) => {
             alt="BOT T1"
             id="leftImg"
           />
-          <MonetizationOn colorPrimary="#FFD700" size="1.5em"/>
+          <Tooltip
+            title={<h3 style={{ color: "lightblue", fontSize: '2.25em' }}>Gold Earned</h3>}
+            placement="top"
+          ><MonetizationOn colorPrimary="#FFD700" size="1.5em"/></Tooltip>
           <p style={{display: 'inline', padding:'.5em', color: '#FFD700'}} > { data[3] ? data[3].gold : '--' } </p>
           <img src={baseUrl+"/kda.svg"} height={"40vh"} alt="kda logo" />
           <p style={{display: 'inline', padding:'.5em', color: '#ffdad0'}} > { data[3] ? data[3].kda : '--'} </p>

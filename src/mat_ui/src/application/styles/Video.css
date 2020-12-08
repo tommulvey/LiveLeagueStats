@@ -25,6 +25,10 @@ iframe {
   padding-left: 1vw;
 }
 
+.MuiTooltip-tooltip {
+  font-size: 1.25em;
+}
+
 .line-chart {
   height: 10vh;
   width: 56vw;

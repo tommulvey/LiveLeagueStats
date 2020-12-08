@@ -66,9 +66,9 @@ const LOLEvents=({setView})=>{
                 const matchStart=startTime.slice(11,16) 
                 return (
                     // <Button keys={id} variant="outlined" onClick={videoSelected.bind(videoSelected,id)}></Button>
-                    <Button keys={id} variant="outlined" onClick={(id) => {setView(1)}}>
+                    <Button keys={id} variant="outlined" onClick={(id) => {setView(1)}} style={{width: '100%'}}>
                     
-                    <Grid container item xs={12} spacing={2}>
+                    <Grid container item xs={12} spacing={2} width={'100%'}>
                                 <Grid item xs={1}>
                                     <div>{matchDate}</div>
                                     <div>{matchStart}</div>
