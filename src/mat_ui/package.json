@@ -38,7 +38,7 @@
 	},
 	"devDependencies": {
 		"cross-env": "5.x",
-		"razzle": "2.x"
+		"razzle": "4.x"
 	},
 	"eslintConfig": {
 		"env": {
